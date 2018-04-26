@@ -11,7 +11,6 @@ function atualizarQuestao( texto, questaoId ){
     document.getElementById("btnIniciar").style = "display: anything";
     document.getElementById("textArea").value = texto;
     setQuestaoId(questaoId);
-    window.alert("OI");
     document.getElementById("idSelecionado").value = id;
     
 }
@@ -35,10 +34,18 @@ function test(){
 }
 
 function verQuestao( texto ){
-    window.alert(texto);
+    //window.alert(texto);
     document.getElementById("textArea").value = texto;
 }
 
+function mostrarCodigo(){
+    document.getElementById('link').click();
+}
+
+
+function mostrarClasseReferencia(){
+    window.open('classeReferencia.xhtml','Classe de Referência', "status=no, width=390, height=480");
+}
 
 
 

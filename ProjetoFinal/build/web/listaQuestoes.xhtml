@@ -32,10 +32,16 @@
                     <h:form>
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
-                        <h:column>
-                            <a href="#" onclick="atualizarQuestao('#{questao.questaoEnunciado}', '#{questao.questaoId}')" >
+                        <h:column >
+                            <h:commandLink value="#{questao.questaoNome}" action="#{escolhe.mostrarEnunciado}" >
+                                <f:ajax event="action" render=":textArea" listener="#{escolhe.show(event)}" />
+                                <f:param name="id" value="#{questao.questaoId}"/>
+                                <f:param name="enun" value="#{questao.questaoEnunciado}"/>
+                                
+                            </h:commandLink>
+                            <!--<a href="#" onclick="atualizarQuestao('#{questao.questaoEnunciado}', '#{questao.questaoId}')" >
                                 <h:outputText value="#{questao.questaoNome}"/>
-                                </a>
+                                </a>-->
                              
                         </h:column>
                        </h:dataTable>
@@ -44,8 +50,12 @@
                    
                 <p:layoutUnit position="center">                    
                   <center>
-                      <h:inputTextarea id="textArea" style="display: none" cols="100" rows="6"/>
-                      <br><h:button id="btnClasseRef" style="display: none" value="Visualizar classe de referência"/></br><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                      <h:inputTextarea id="textArea" value="#{escolhe.enunciado}" cols="100" rows="6"/>
+                     <h:commandButton id="btnClasseRef" value="Visualizar classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
+                     
+                      <br /><br />
+                      <br /><br />
                   </center>
                    <!--
                     <h:commandButton id="btnIniciar" action="tipoCondicaoEntrada?faces-redirect=true&amp;id=1" style="display: none" value="Iniciar resolução">
@@ -53,9 +63,9 @@
                           
                       <f:ajax />
                     </h:commandButton>-->
-                   <h:commandButton id="btnIniciar"  action="#{escolhe.verDetalhes()}" style="display: none" value="Iniciar resolução">
+                   <h:commandButton id="btnIniciar"  action="#{escolhe.verDetalhes()}" value="Iniciar resolução">
                            
-                       <f:param id="idSelecionado" name="id" value="1"/>
+                       
                       <f:ajax />
                     </h:commandButton>
                     
