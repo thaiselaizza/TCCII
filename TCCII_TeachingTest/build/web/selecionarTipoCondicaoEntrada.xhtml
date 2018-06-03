@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>
+            </f:facet>
+            
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloSelecionaTipoCondentrada.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    TEACHING TEST
+                </p:layoutUnit>    
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="west" size="175" visible="false">
+                    <h:form>
+                        Lista de Questões<br /><br />
+                       <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
+                        <h:column >
+                            <h:commandLink value="#{questao.nomeQuestao}" action="#{escolhe.mostrarEnunciado}" >
+                                <f:ajax event="action" render=":textArea" listener="#{escolhe.show(event)}" />
+                                <f:param name="id" value="#{questao.codQuestao}"/>
+                                <f:param name="enun" value="#{questao.enunciadoQuestao}"/>
+                                
+                            </h:commandLink>
+<!--<a href="#" onclick="atualizarQuestao('#{questao.enunciadoQuestao}', '#{questao.codQuestao}')" >
+                               <h:outputText value="#{questao.nomeQuestao}"/>
+                                </a>-->
+                             
+                        </h:column>
+                       </h:dataTable>
+                    </h:form>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center">                    
+                  <center>                      
+                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="labelTipoDescricao" value="Selecione o tipo de condição de entrada"/>
+                      <br></br>
+                      <br></br>
+                      
+                      <h:selectOneListbox  id="listBoxTipoCondicao" size="1">                
+                          <f:selectItems value="#{tipoCondicao.listaTipoCondicaoEntrada}" var="t" 
+                                         itemLabel="#{t.nomeTipoCondicaoEntrada}" itemValue="#{t.nomeTipoCondicaoEntrada}"/>
+                      </h:selectOneListbox>                        
+                      
+                      <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes3()}" value="Próximo passo">
+                       <f:ajax />
+                      </h:commandButton>
+                  </center>
+                    <!--<h:graphicImage id="imageExemplo" library="imagens" name="intervalo.png" width="600" height="400"/>-->
+                    #{passo.mostrarDicaTipoCondicao()}
+                    <h:inputTextarea id="textAreaDicaTipoCond" cols="55" rows="4" value="#{passo.textoDica}"/>
+                    
+                    
+                                     
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>

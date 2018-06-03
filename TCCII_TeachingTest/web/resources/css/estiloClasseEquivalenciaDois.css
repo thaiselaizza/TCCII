@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/05/2018, 22:52:22
+    Author     : THAIS
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/05/2018, 21:56:31
+    Author     : THAIS
+*/
+
+#textAreaDicaClasse{
+    margin-left: 265px;
+    resize: none;
+    border: 2px solid;
+    border-radius: 7.5pt;
+    border-color: crimson;
+}
+
+#labelCValida{
+    margin-left: 265px;
+}
+
+#textClasseValida{
+    margin-left: 265px;
+}
+
+#labelCInvalidaUm{
+    margin-left: 140px;
+}
+
+#textClasseInvalidaUm{
+    margin-left: 45px;
+}
+
+
+#btnSalvar{
+    margin-left: 1000px;
+}
+

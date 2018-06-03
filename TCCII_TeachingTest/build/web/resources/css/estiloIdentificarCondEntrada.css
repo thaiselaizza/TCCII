@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/05/2018, 18:01:24
+    Author     : THAIS
+*/
+
+#labelCondEntrada{
+    margin-left: 500px;
+}
+
+#textCondicaoEntrada{
+    margin-left: 525px;    
+}
+
+#btnProximoPasso{
+    margin-left: 950px;
+    margin-top: 80px;
+}
+
+#textAreaDicaCondEntrada{
+    margin-left: 265px;
+    margin-top: -300px;
+    resize: none;
+    border: 2px solid;
+    border-radius: 7.5pt;
+    border-color: crimson;
+}
