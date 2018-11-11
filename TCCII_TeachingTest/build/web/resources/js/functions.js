@@ -47,5 +47,9 @@ function mostrarClasseReferencia(){
     window.open('classeReferencia.xhtml','Classe de Referência', "status=no, width=390, height=480");
 }
 
+function mostrarClasseJUnit(){
+    window.open('classeJUnit.xhtml','Classe JUnit', "status=no, width=600, height=480");
+}
+
 
 

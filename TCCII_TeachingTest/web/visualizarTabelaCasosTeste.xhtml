@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>
+            </f:facet>
+            
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloTabela.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    TEACHING TEST
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
+                
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                </p:layoutUnit>    
+                
+                
+                <p:layoutUnit position="west" size="175">
+                    Passo 4<br/><br/>
+                    * Montar casos de teste
+                    <h:form style="display: none">
+                        Lista de Questões<br /><br />
+                       <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
+                        <h:column >
+                            <h:commandLink value="#{questao.nomeQuestao}" action="#{escolhe.mostrarEnunciado}" >
+                                <f:ajax event="action" render=":textArea" listener="#{escolhe.show(event)}" />
+                                <f:param name="id" value="#{questao.codQuestao}"/>
+                                <f:param name="enun" value="#{questao.enunciadoQuestao}"/>
+                                
+                            </h:commandLink>
+<!--<a href="#" onclick="atualizarQuestao('#{questao.enunciadoQuestao}', '#{questao.codQuestao}')" >
+                               <h:outputText value="#{questao.nomeQuestao}"/>
+                                </a>-->
+                             
+                        </h:column>
+                       </h:dataTable>
+                    </h:form>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center">                    
+                  <center>                      
+                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <br></br>
+                      <br></br>
+                         
+                      
+                      <h:form>
+                          <h:dataTable value ="#{escolhe.mostraTabela()}" var = "preencher" id="tabelaCasosTeste" border="1"
+                              
+                            styleClass="tabelaCasosTeste"
+                            headerClass="tabelaCasosTeste-header"
+                            rowClasses="tabelaCasosTeste-odd-row,tabelaCasosTeste-even-row">
+            
+                            <h:column>    				
+                            <f:facet name = "header">Tipo de condição</f:facet>    				
+                               #{preencher.respTipoCE}
+                            </h:column>
+                            
+                            <h:column>
+                            <f:facet name = "header">Condição de entrada</f:facet>
+                               #{preencher.condEntrada}
+                            </h:column>
+[
+                            <h:column>
+                            <f:facet name = "header">Classe válida</f:facet>
+                                #{preencher.valida}
+                            </h:column>
+
+                            <h:column>
+                            <f:facet name = "header">Classe inválida</f:facet>
+                               #{preencher.invalidaUm} <br></br>                            
+                               #{preencher.invalidaDois}
+                            </h:column>
+                        </h:dataTable>
+                     </h:form>
+                      
+                  </center>
+                  
+                  <br></br>
+                  
+                  <h:commandButton id="btnAddTipoCondicao"  action="#{escolhe.addTipoCondicaoEntrada()}" value="+ Condição entrada">
+                       <f:ajax />
+                  </h:commandButton>   
+                  
+                 <!-- <h:commandButton id="btnAddCondicaoEntrada" action="#{escolhe.addCondicaoEntrada()}" value="+ Condição Entrada">
+                       <f:ajax />
+                  </h:commandButton>-->
+                  
+                  <h:commandButton id="btnPreencherCT"  action="#{escolhe.mostrarTelaClasseJUnit()}" value="Montar classe JUnit">
+                       <f:ajax />
+                  </h:commandButton>
+                                   
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>

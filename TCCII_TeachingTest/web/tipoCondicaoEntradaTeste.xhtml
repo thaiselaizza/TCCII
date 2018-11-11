@@ -22,14 +22,20 @@
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
                     TEACHING TEST
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
+                
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
                 </p:layoutUnit>
 
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
+                
 
-                <p:layoutUnit position="west" size="175" visible="false">
-                    <h:form>
+                <p:layoutUnit position="west" size="175">
+                    Passo 1<br/><br/>
+                    * Identificar tipo de condição de entrada
+                    <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
                         <h:column >
@@ -52,7 +58,7 @@
                   <center>
                       <h:inputTextarea id="textArea" cols="100" rows="6"/>
                       
-                      <h:commandButton id="btnCondEnt"  action="#{escolhe.verDetalhes2()}" value="Escolher tipo de condição de entrada">
+                      <h:commandButton id="btnCondEnt"  action="#{escolhe.verDetalhes1()}" value="Tipo de condição de entrada ">
                                               
                       <f:ajax />
                     </h:commandButton>

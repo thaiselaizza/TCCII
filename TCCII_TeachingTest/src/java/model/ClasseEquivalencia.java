@@ -2,9 +2,11 @@ package model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -14,17 +16,21 @@ import javax.persistence.ManyToOne;
 public class ClasseEquivalencia {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codClasseEquivalencia;
-    private String classeValidaUm;
-    private String classeValidaDois;
-    private String classeInvalida;
+    private String classeInvalidaUm;
+    private String classeInvalidaDois;
+    private String classeValida;
     private String classeValidaTrue;
     private String classeInvalidaFalse;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "classeequivcodcondentrada")
     private CondicaoEntrada condicaoEntrada;
+    
+    @OneToOne
+    @JoinColumn(name = "valorcasosteste")
+    private ValoresCasosTeste valoresCasosTeste;
 
     public Long getCodClasseEquivalencia() {
         return codClasseEquivalencia;
@@ -34,28 +40,28 @@ public class ClasseEquivalencia {
         this.codClasseEquivalencia = codClasseEquivalencia;
     }
 
-    public String getClasseValidaUm() {
-        return classeValidaUm;
+    public String getClasseInvalidaUm() {
+        return classeInvalidaUm;
     }
 
-    public void setClasseValidaUm(String classeValidaUm) {
-        this.classeValidaUm = classeValidaUm;
+    public void setClasseInvalidaUm(String classeInvalidaUm) {
+        this.classeInvalidaUm = classeInvalidaUm;
     }
 
-    public String getClasseValidaDois() {
-        return classeValidaDois;
+    public String getClasseInvalidaDois() {
+        return classeInvalidaDois;
     }
 
-    public void setClasseValidaDois(String classeValidaDois) {
-        this.classeValidaDois = classeValidaDois;
+    public void setClasseInvalidaDois(String classeInvalidaDois) {
+        this.classeInvalidaDois = classeInvalidaDois;
     }
 
-    public String getClasseInvalida() {
-        return classeInvalida;
+    public String getClasseValida() {
+        return classeValida;
     }
 
-    public void setClasseInvalida(String classeInvalida) {
-        this.classeInvalida = classeInvalida;
+    public void setClasseValida(String classeValida) {
+        this.classeValida = classeValida;
     }
 
     public String getClasseValidaTrue() {
@@ -80,6 +86,14 @@ public class ClasseEquivalencia {
 
     public void setCondicaoEntrada(CondicaoEntrada condicaoEntrada) {
         this.condicaoEntrada = condicaoEntrada;
+    }
+
+    public ValoresCasosTeste getValoresCasosTeste() {
+        return valoresCasosTeste;
+    }
+
+    public void setValoresCasosTeste(ValoresCasosTeste valoresCasosTeste) {
+        this.valoresCasosTeste = valoresCasosTeste;
     }
 
 

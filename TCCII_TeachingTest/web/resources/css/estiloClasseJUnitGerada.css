@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/10/2018, 19:50:50
+    Author     : THAIS
+*/
+
+
+#txtClasseReferencia{
+    
+    margin-left: -850px;
+    resize: none;
+    overflow-y: scroll;    
+    border: 3px solid;
+    
+}
+
+
+
+#labelCR{
+    margin-left: 142px;
+    
+}
+
+#labelJU{
+    margin-left: 230px;
+    
+    
+}
+
+#btnCriarClasse{
+    margin-left: 770px;
+}
+
+#btnConcluir{
+    margin-left: 10px;
+}
+
+
+#form{
+    margin-left: 300px;    
+    margin-top: -245px;
+    border-style: solid;
+    height: 230px;
+    width: 575px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+

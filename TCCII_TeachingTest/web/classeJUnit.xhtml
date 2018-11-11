@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+           <title>Visualização Classe de Referência</title>
+           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body>
+            <p:layout fullPage="true"> 
+                
+                <p:layoutUnit  position="center">  
+                
+                        
+           
+                    
+                    <h:form id="form">
+                    <br></br>
+                    <h:inputTextarea id="textAreaCasosTeste" cols="70" rows="4" value=""/>
+                    <br></br>
+                    
+                      <br></br> 
+                      <h:outputLabel id="lblClasse" value="Informe o nome da classe"/>
+                      <br></br> 
+                      <h:inputText id="txtClasse"  size="35" /> 
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="lblCE" value="Informe o nome da classe de equvalência"/>
+                      <br></br> 
+                      <h:inputText id="txtCE"  size="35" /> 
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="lblMetodo" value="Informe o nome do método"/>  
+                      <br></br>
+                      <h:inputText id="txtMetodo"  size="35"/>
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="lblMR" value="Selecione o método de referência"/>  
+                      <br></br>
+                      <h:selectOneMenu id="listBox" style="width: 320px">  
+                            <f:selectItem  itemValue="#{null}"/>
+                            <f:selectItems value="#{cr.listarMetodosClasse()}" var="t" 
+                                           itemLabel="#{t}" itemValue="#{t}"/>
+                      </h:selectOneMenu>
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="lblParametro" value="Informe o parâmetro (caso necessário)"/>  
+                      <br></br>
+                      <h:inputText id="txtParametro"  size="35"/>
+                      <br></br>
+                      <br></br>
+                      <h:outputLabel id="lblAtributo" value="Informe o atributo do caso de teste"/> 
+                      <br></br>
+                      <h:inputText id="txtAtributo"  size="35"/>
+                      <h:commandButton id="btnAdicionar"  action="#{classeJU.criarClasseJUnit()}" value="Adicionar">
+                       <f:ajax />
+                    </h:commandButton>                 
+                    </h:form>
+                    
+                </p:layoutUnit>     
+               
+            </p:layout>    
+            
+
+        </h:body>
+
+    </f:view>
+</html>

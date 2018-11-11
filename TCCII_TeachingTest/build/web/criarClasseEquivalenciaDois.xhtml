@@ -22,13 +22,17 @@
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
                     TEACHING TEST
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()} 
                 </p:layoutUnit>    
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
+               
                 
-                <p:layoutUnit position="west" size="175" visible="false">
-                    <h:form>
+                <p:layoutUnit position="west" size="175" >
+                    Passo 3<br/><br/>
+                    * Criar classes de equivalência
+                    <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
                         <h:column >

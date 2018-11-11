@@ -17,8 +17,42 @@ and open the template in the editor.
     margin-left: 850px;
 }
 
+#labelAlunoLogado{
+    margin-left: 1200px;
+    color: #e17009;
+}
+
+#labelNomeSistema{
+    color: #e17009;
+}
 
 
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
 
 
 

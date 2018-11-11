@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,13 +19,14 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name="TipoCondicaoEntrada.findAll", query="SELECT t FROM TipoCondicaoEntrada t")
-    
+    @NamedQuery(name="TipoCondicaoEntrada.findAll", query="SELECT t FROM TipoCondicaoEntrada t"),
+    @NamedQuery(name="TipoCondicaoEntrada.findByName",query="SELECT t FROM TipoCondicaoEntrada t WHERE nomeTipoCondEntrada =:name"),
+    @NamedQuery(name="TipoCondicaoEntrada.findCE", query="select t FROM TipoCondicaoEntrada t WHERE nomeTipoCondEntrada =:tipoCE")
 })
 public class TipoCondicaoEntrada {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codTipoCondEntrada;
     private String tipoCondicao;
     private String exemploCondicao;

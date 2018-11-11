@@ -9,19 +9,22 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>TEACHING TEST</title>
+                <title>TEACHING TEST</title>  
             </f:facet>
             <link rel="stylesheet" type="text/css" href="resources/css/estilo.css"/>
             <h:outputScript name="js/functions.js"/>
 
         </h:head>
 
-        <h:body>
+        <h:body style="background-color: #2e6e9e">
 
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    TEACHING TEST
+                <p:layoutUnit id="norte" position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                    
+                    <!--<h:graphicImage library="imagens" name="banner.jpg"  style=" background-repeat: inherit" />-->
+                    
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
                     <br/><br/>
         
             
@@ -31,11 +34,11 @@
                     
                 </p:layoutUnit>
 
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+               <!-- <p:layoutUnit position="south" size="100" closable="true" collapsible="true" styleClass="layoutSouth">
                     Footer
-                </p:layoutUnit>
+                </p:layoutUnit>-->
 
-                <p:layoutUnit position="west" size="175">
+                <p:layoutUnit position="west" size="175" styleClass="layoutWest">
                     <h:form>
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
@@ -55,7 +58,8 @@
                     </h:form>
                 </p:layoutUnit>
                    
-                <p:layoutUnit position="center">                    
+                <p:layoutUnit position="center" styleClass="layoutCenter">    
+                    <br/>
                   <center>
                       <h:inputTextarea id="textArea" value="#{escolhe.enunciado}" cols="100" rows="6"/>
                      <h:commandButton id="btnClasseRef" value="Visualizar classe de referência" onclick="mostrarClasseReferencia()">

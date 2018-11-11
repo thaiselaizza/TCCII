@@ -14,11 +14,15 @@ and open the template in the editor.
 }
 
 #textAreaPassoTres{
-    margin-left: 265px;
+    margin-left: 175px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
     border-color: dodgerblue;
+}
+
+#labelAlunoLogado{
+    margin-left: 1200px;
 }
 
 

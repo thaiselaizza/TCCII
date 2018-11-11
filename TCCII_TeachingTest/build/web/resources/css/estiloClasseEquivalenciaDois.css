@@ -19,7 +19,7 @@ and open the template in the editor.
 */
 
 #textAreaDicaClasse{
-    margin-left: 265px;
+    margin-left: 175px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
@@ -27,11 +27,11 @@ and open the template in the editor.
 }
 
 #labelCValida{
-    margin-left: 265px;
+    margin-left: 175px;
 }
 
 #textClasseValida{
-    margin-left: 265px;
+    margin-left: 175px;
 }
 
 #labelCInvalidaUm{
@@ -44,6 +44,6 @@ and open the template in the editor.
 
 
 #btnSalvar{
-    margin-left: 1000px;
+    margin-left: 915px;
 }
 

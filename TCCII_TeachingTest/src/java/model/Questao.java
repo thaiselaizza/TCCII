@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,12 +23,13 @@ import javax.persistence.OneToMany;
 public class Questao {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codQuestao;
     private String nomeQuestao;
     @Column(length = 500, nullable = false, unique = true)
     private String enunciadoQuestao;
     private String pathClasseReferenciaQuestao;
+    private String pathClasseJUnit;
     
     public Questao() {
     }
@@ -74,6 +76,15 @@ public class Questao {
         this.pathClasseReferenciaQuestao = pathClasseReferenciaQuestao;
     }
 
+    public String getPathClasseJUnit() {
+        return pathClasseJUnit;
+    }
+
+    public void setPathClasseJUnit(String pathClasseJUnit) {
+        this.pathClasseJUnit = pathClasseJUnit;
+    }
+    
+    
     public Tutor getTutor() {
         return tutor;
     }

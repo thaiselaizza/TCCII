@@ -22,13 +22,19 @@
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
                     TEACHING TEST
-                </p:layoutUnit>    
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
                 
-                <p:layoutUnit position="west" size="175" visible="false">
-                    <h:form>
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                </p:layoutUnit>    
+               
+                
+                <p:layoutUnit position="west" size="175">
+                    Passo 1<br/><br/>
+                    * Identificar tipo de condição de entrada
+                    <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
                         <h:column >
@@ -51,26 +57,28 @@
                   <center>                      
                       <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
                       <br></br>
-                      <br></br>
+                      
+                      
                       <h:outputLabel id="labelTipoDescricao" value="Selecione o tipo de condição de entrada"/>
-                      <br></br>
-                      <br></br>
                       
-                      <h:selectOneListbox  id="listBoxTipoCondicao" size="1">                
-                          <f:selectItems value="#{tipoCondicao.listaTipoCondicaoEntrada}" var="t" 
-                                         itemLabel="#{t.nomeTipoCondicaoEntrada}" itemValue="#{t.nomeTipoCondicaoEntrada}"/>
-                      </h:selectOneListbox>                        
-                      
+                      <h:form id="formListaCondicao">
+                          <h:selectOneMenu id="listBox" onchange = "submit()" style="width: 320px"  
+                                           valueChangeListener ="#{tipoCondicao.valueChange}">  
+                               <f:selectItem itemLabel="Select" itemValue="#{null}"/>
+                              <f:selectItems value="#{tipoCondicao.listaTipoCondicaoEntrada}" var="t" 
+                                             itemLabel="#{t.nomeTipoCondicaoEntrada}" itemValue="#{t.nomeTipoCondicaoEntrada}"/>
+                          </h:selectOneMenu>                        
+                      </h:form>
+                      <h:graphicImage id="imageExemplo" library="imagens" name="#{tipoCondicao.imagem}"/>
+                      <br/><br/>
                       <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes3()}" value="Próximo passo">
                        <f:ajax />
-                      </h:commandButton>
-                  </center>
-                    <!--<h:graphicImage id="imageExemplo" library="imagens" name="intervalo.png" width="600" height="400"/>-->
-                    #{passo.mostrarDicaTipoCondicao()}
-                    <h:inputTextarea id="textAreaDicaTipoCond" cols="55" rows="4" value="#{passo.textoDica}"/>
+                      </h:commandButton>  
+                      
+                  </center>                 
                     
-                    
-                                     
+                                  
+                                                        
                     
                 </p:layoutUnit>
 

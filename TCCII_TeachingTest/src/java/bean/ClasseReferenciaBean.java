@@ -5,11 +5,16 @@ import dao.QuestaoDao;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import model.Questao;
+
+
 
 /**
  *
@@ -51,7 +56,7 @@ public class ClasseReferenciaBean {
             // de repetição atingir o final do arquivo texto
             while (linha != null) {
                 //System.out.printf("%s\n", linha);
-                texto += linha;
+                texto += linha + "\n";
  
             linha = lerArq.readLine(); // lê da segunda até a última linha
       }
@@ -62,7 +67,39 @@ public class ClasseReferenciaBean {
     } catch (IOException e) {
         System.err.printf("Erro na abertura do arquivo: %s.\n",
           e.getMessage());
+    }        
+            
     }
+    
+    public List<String> listarMetodosClasse(){
+        String id = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idQuestao");        
+        Questao q = dao.getQuestaoPorId(Long.parseLong(id));           
+        String pathCR = q.getPathClasseReferenciaQuestao();
+        ArrayList<String> listaMetodos = new ArrayList();
         
+        try {
+            String nomeClasse = pathCR.substring(pathCR.lastIndexOf("\\")+1,pathCR.lastIndexOf("."));
+            System.out.println(nomeClasse);
+            
+            Class c = (Class)Class.forName(nomeClasse);
+            
+            Method[] m = c.getDeclaredMethods();
+            
+            for (int i = 0; i < m.length; i++){
+                String metodoAux = m[i].toString().substring(m[i].toString().lastIndexOf(".")+1, m[i].toString().lastIndexOf(")")+1);
+                
+                String metodo = metodoAux.replaceAll("\\(.*\\)", "()");
+                    listaMetodos.add(metodo);  
+                    System.out.println(listaMetodos);
+                //}               
+            }
+            
+              
+            
+        } catch (Throwable e) {
+            System.err.println(e);
+        }
+        return listaMetodos;
     }
+    
 }

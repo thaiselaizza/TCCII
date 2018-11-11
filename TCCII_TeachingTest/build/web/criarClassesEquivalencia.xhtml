@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>
+            </f:facet>
+            
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloClasseEquivalenciaUm.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    TEACHING TEST
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
+                
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/>
+                </p:layoutUnit>    
+                
+                
+                <p:layoutUnit position="west" size="175">
+                    Passo 3<br/><br/>
+                    * Criar classes de equivalência
+                    <h:form style="display: none">
+                        Lista de Questões<br /><br />
+                       <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
+                        <h:column >
+                            <h:commandLink value="#{questao.nomeQuestao}" action="#{escolhe.mostrarEnunciado}" >
+                                <f:ajax event="action" render=":textArea" listener="#{escolhe.show(event)}" />
+                                <f:param name="id" value="#{questao.codQuestao}"/>
+                                <f:param name="enun" value="#{questao.enunciadoQuestao}"/>
+                                
+                            </h:commandLink>
+<!--<a href="#" onclick="atualizarQuestao('#{questao.enunciadoQuestao}', '#{questao.codQuestao}')" >
+                               <h:outputText value="#{questao.nomeQuestao}"/>
+                                </a>-->
+                             
+                        </h:column>
+                       </h:dataTable>
+                    </h:form>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center">                    
+                  <center>                      
+                      <h:inputTextarea id="textArea" cols="100" rows="6"/> 
+                      <br></br>
+                      <br></br>
+                      
+                  </center>
+                    
+                    #{passo.mostrarDicaClassesEquivalenciaUm()}
+                    <h:inputTextarea id="textAreaDicaClasse" cols="55" rows="4" value="#{passo.textoDica}"/>
+                    
+                    <br></br>
+                    <br></br>
+                    
+                    
+                    <h:outputText id="txtValida" value="Classe válida     "/>
+                    <h:outputText id="txtInvalida" value="Classe Inválida "/>
+                    
+                    <h:form id="formTable">                         
+                    
+                        <h:dataTable  value="#{tipoCondicao.getClassesValidas()}" var="valida" id="tabelaClasseValida">
+                        <h:column>
+                            
+                            <h:inputText id="valida" />
+                        </h:column>
+                    </h:dataTable>                   
+                    
+                   
+                        
+                        <h:dataTable  value="#{tipoCondicao.getClassesInValidas()}" var="invalida" id="tabelaClasseInvalida" style="margin-left: 245px; margin-top: -33px">
+                        <h:column>
+                            
+                            <h:inputText id="invalida" />
+                        </h:column>
+                    </h:dataTable>
+                       
+                    
+                   <!--
+                    <h:outputLabel id="labelCValida" value="Classe válida"/>
+                    <h:outputLabel id="labelCInvalidaUm" value="Classe inválida"/>  
+                    <br></br>                    
+                    <h:inputText id="textClasseValida"/>                                     
+                    <h:inputText id="textClasseInvalidaUm"/>
+                    <br></br>
+                    <br></br>
+                    <h:inputText id="textClasseInvalidaDois"/>
+                    -->
+                    <h:commandButton id="btnSalvar"  action="#{escolhe.montarLista()}" value="Salvar" style="margin-left: 730px">
+                       <f:ajax />
+                    </h:commandButton>                 
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>

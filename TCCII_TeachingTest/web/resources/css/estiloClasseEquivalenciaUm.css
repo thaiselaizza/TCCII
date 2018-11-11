@@ -9,34 +9,28 @@ and open the template in the editor.
 */
 
 #textAreaDicaClasse{
-    margin-left: 265px;
+    margin-left: 175px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
     border-color: crimson;
 }
 
-#labelCValida{
-    margin-left: 265px;
+#txtValida{
+    margin-left: 177px;
 }
 
-#textClasseValida{
-    margin-left: 265px;
+
+#txtInvalida{
+    margin-left: 134px;
 }
 
-#labelCInvalidaUm{
-    margin-left: 140px;
+#labelAlunoLogado{
+    margin-left: 1200px;
 }
 
-#textClasseInvalidaUm{
-    margin-left: 45px;
+#formTable{
+    margin-left: 175px;
 }
 
-#textClasseInvalidaDois{
-    margin-left: 513px;
-}
-
-#btnSalvar{
-    margin-left: 290px;
-}
 

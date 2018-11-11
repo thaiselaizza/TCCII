@@ -9,21 +9,40 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>  
+            </f:facet>
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloLogin.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
 
     
-    <h:body>    
-        <h:form>
+    <h:body style="background: whitesmoke">    
+        <center>
+        <h:form id="formLogin">
             <p:messages id="messages" />
-            <p:panelGrid columns="2">
+                <br></br>
+                <br></br>
                 <p:outputLabel for="login" value="Login:" />
                 <p:inputText id="login" value="#{loginBean.aluno.loginAluno}" />
+                <br></br>
+                <br></br>
                 <p:outputLabel for="senha" value="Senha:" />
                 <p:inputText id="senha" value="#{loginBean.aluno.senhaAluno}" />
-                    
+                <br></br>
+                <br></br>
                 <p:commandButton value="Logar" icon="ui-icon-star"
                                  action="#{loginBean.login()}" ajax="false">  
                 </p:commandButton> 
-            </p:panelGrid>
+                <p:commandButton value="Limpar" icon="ui-icon-star"
+                                  ajax="false">  
+                </p:commandButton>
+            
         </h:form>
+        </center>    
     </h:body>
 </html>

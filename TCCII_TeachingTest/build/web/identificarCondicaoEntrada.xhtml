@@ -17,18 +17,24 @@
 
         </h:head>
 
-        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+        <h:body  onload="verQuestao('#{escolhe.verQuestao()}')">
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
                     TEACHING TEST
-                </p:layoutUnit>    
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
                 
-                <p:layoutUnit position="west" size="175" visible="false">
-                    <h:form>
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                </p:layoutUnit>    
+                
+                
+                <p:layoutUnit position="west" size="175">
+                    Passo 2<br/><br/>
+                    * Identificar condição de entrada
+                    <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
                         <h:column >
@@ -47,29 +53,34 @@
                     </h:form>
                 </p:layoutUnit>
                 
-                <p:layoutUnit position="center">                    
-                  <center>                      
+                <p:layoutUnit  position="center">  
+                   
+                        
+                    
+                  <center>                    
                       <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
                       <br></br>
                       <br></br>
-                      <h:outputLabel id="labelCondEntrada" value="Informe a condição de entrada"/>
-                      <br></br>
-                      <br></br>
-                      <h:inputText id="textCondicaoEntrada" size="29"/>   
+                                     
                       
                       
                       
                   </center>
                     
                     #{passo.mostrarDicaCondicaoEntrada()}
+                    <center>
                     <h:inputTextarea id="textAreaDicaCondEntrada" cols="55" rows="4" value="#{passo.textoDica}"/>
                     
+                    <h:form id="form">
+                      <h:outputLabel id="labelCondEntrada" value="Informe a condição de entrada"/>  
+                         <h:inputText id="textCondicaoEntrada"  size="29"/> 
                     <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes5()}" value="Próximo passo">
                        <f:ajax />
                     </h:commandButton>                 
-                    
+                  </h:form>
+                    </center>
                 </p:layoutUnit>
-
+                
             </p:layout>
 
         </h:body>
