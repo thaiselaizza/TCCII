@@ -10,27 +10,34 @@ and open the template in the editor.
 
 .tabelaCasosTeste{
     border-collapse:collapse;
-    width: 68%;
+    width: 78%;
+    
 }
 
 .tabelaCasosTeste-header{
     text-align:center;
     background:none repeat scroll 0 0 #E5E5E5;
     border-bottom:1px solid #BBBBBB;
-    padding:16px;
+    padding: 16px;
+    font-size: 17px;
+    
 }
 
 .tabelaCasosTeste-odd-row{
 	text-align:center;
 	background:none repeat scroll 0 0 #F9F9F9;
 	border-top:1px solid #BBBBBB;
+        
 }
 
 .tabelaCasosTeste-even-row{
 	text-align:center;
 	background:none repeat scroll 0 0 #F9F9F9;
 	border-top:1px solid #BBBBBB;
+        
 }
+
+
 
 #btnAddTipoCondicao{
     margin: 2px;
@@ -45,4 +52,44 @@ and open the template in the editor.
 #btnPreencherCT{
     margin: 2px;
 }
+
+#labelNomeSistema{
+    color: #e17009;
+}
+
+#labelAlunoLogado{
+    margin-left: 1200px;
+    color: #e17009;
+}
+
+
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
+
+
+
 

@@ -29,7 +29,7 @@ public class Questao {
     @Column(length = 500, nullable = false, unique = true)
     private String enunciadoQuestao;
     private String pathClasseReferenciaQuestao;
-    private String pathClasseJUnit;
+    private String pathClasseExecutavel;
     
     public Questao() {
     }
@@ -76,12 +76,12 @@ public class Questao {
         this.pathClasseReferenciaQuestao = pathClasseReferenciaQuestao;
     }
 
-    public String getPathClasseJUnit() {
-        return pathClasseJUnit;
+    public String getPathClasseExecutavel() {
+        return pathClasseExecutavel;
     }
 
-    public void setPathClasseJUnit(String pathClasseJUnit) {
-        this.pathClasseJUnit = pathClasseJUnit;
+    public void setPathClasseExecutavel(String pathClasseExecutavel) {
+        this.pathClasseExecutavel = pathClasseExecutavel;
     }
     
     

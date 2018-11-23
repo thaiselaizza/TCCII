@@ -14,15 +14,57 @@ and open the template in the editor.
 }
 
 #textAreaPassoUm{
-    margin-left: 175px;
+    margin-left: 145px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
-    border-color: dodgerblue;
+    border-color: #e17009;
+}
+
+#labelNomeSistema{
+    color: #e17009;
 }
 
 #labelAlunoLogado{
     margin-left: 1200px;
+    color: #e17009;
 }
+
+#tablePassos{
+    border-style: none;
+    text-align: left;
+    
+}
+
+
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
+
+
+
 
 

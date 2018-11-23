@@ -38,7 +38,7 @@
                     Footer
                 </p:layoutUnit>-->
 
-                <p:layoutUnit position="west" size="175" styleClass="layoutWest">
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
                     <h:form>
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
@@ -62,8 +62,7 @@
                     <br/>
                   <center>
                       <h:inputTextarea id="textArea" value="#{escolhe.enunciado}" cols="100" rows="6"/>
-                     <h:commandButton id="btnClasseRef" value="Visualizar classe de referência" onclick="mostrarClasseReferencia()">
-                     </h:commandButton>
+                     
                      
                       <br /><br />
                       <br /><br />

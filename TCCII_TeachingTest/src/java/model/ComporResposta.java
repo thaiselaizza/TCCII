@@ -14,6 +14,17 @@ public class ComporResposta {
     private ArrayList<RespostaAdicional> adicionais = new ArrayList();
     private CondicaoEntrada condicaoEntrada;
     private ClasseEquivalencia equivalencia;
+    
+    public List<String> getInvalidas(){
+        List<String> lista = new ArrayList<String>();
+        if(!equivalencia.getClasseInvalidaUm().equals("")){
+            lista.add(equivalencia.getClasseInvalidaUm());
+        }
+        if(equivalencia.getClasseInvalidaDois()!= null){
+            lista.add(equivalencia.getClasseInvalidaDois());
+        }
+        return lista;
+    }
 
     public CondicaoEntrada getCondicaoEntrada() {
         return condicaoEntrada;

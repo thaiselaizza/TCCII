@@ -15,7 +15,9 @@ import util.ConnectionFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -24,9 +26,11 @@ import javax.faces.component.html.HtmlInputText;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.persistence.EntityManager;
 import model.ClasseEquivalencia;
+import model.ClasseJUnit;
 import model.ComporResposta;
 import model.CondicaoEntrada;
 import model.RespostaAdicional;
+import model.ValoresCasosTeste;
 
 /**
  *
@@ -182,6 +186,8 @@ public class EscolheQuestaoBean {
             System.out.println(compor.getInvalidaDois());
         }
         return listaCompor;
+        
+        
     }
     
     public String montarLista(){
@@ -240,6 +246,7 @@ public class EscolheQuestaoBean {
         return "visualizarTabelaCasosTeste?faces-redirect=true&amp;id="+sId;
     }
     
+        
     public String addTipoCondicaoEntrada(){
         String sId = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idQuestao");
         //System.out.println("ID RECUPERADO DA SESSAO: " + sId);
@@ -275,11 +282,11 @@ public class EscolheQuestaoBean {
         return listaEquivalencias;
     }
     
-    public String mostrarTelaClasseJUnit(){
+    public String montarCasosTeste(){
         String sId = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idQuestao");
         //System.out.println("ID RECUPERADO DA SESSAO: " + sId);
         setEnunciado("");
-        return "visualizarClasseJUnitGerada?faces-redirect=true&amp;id="+sId;
+        return "montarCasosTeste?faces-redirect=true&amp;id="+sId;
     }
     
     

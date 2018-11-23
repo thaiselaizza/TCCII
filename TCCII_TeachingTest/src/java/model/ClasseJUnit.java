@@ -5,9 +5,18 @@
  */
 package model;
 
+import dao.QuestaoDao;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Map;
+import javax.faces.context.FacesContext;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import util.ConnectionFactory;
 
 /**
  *
@@ -22,6 +31,9 @@ public class ClasseJUnit {
     private String nomeMetodo;
     private String nomeMetodoRef;
     private String parametro;
+    
+    
+    private QuestaoDao dao =  new QuestaoDao(ConnectionFactory.getEntityManager());
 
     public String getNomeClasse() {
         return nomeClasse;
@@ -63,6 +75,7 @@ public class ClasseJUnit {
         this.nomeMetodoRef = nomeMetodoRef;
     }
     
-   
     
+    
+        
 }

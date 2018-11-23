@@ -17,11 +17,12 @@
 
         </h:head>
 
-        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')" style="background-color: #2e6e9e">
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    TEACHING TEST
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
+                    
                     <br/><br/>
         
             
@@ -31,9 +32,29 @@
                 </p:layoutUnit>    
                 
                 
-                <p:layoutUnit position="west" size="175">
-                    Passo 4<br/><br/>
-                    * Montar casos de teste
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
+                    <h:outputLabel id="lblPassos" value="Passos"/><br/><br/>
+                    
+                    <table id="tablePassos">
+                        <tr><td><h:outputLabel id="lblPasso1" value="1. Identificar tipo de condição de entrada"/></td> 
+                            <td> <h:graphicImage id="imagembug1" library="imagens" name="bug2.png"/> 
+                            
+                        </td> </tr>
+                           
+                        <tr><td><h:outputLabel id="lblPasso2" value="2. Identificar condição de entrada"/></td> 
+                            <td> <h:graphicImage id="imagembug2" library="imagens" name="bug2.png"/> 
+                        </td> </tr> 
+                            
+                        <tr><td><h:outputLabel id="lblPasso3" value="3. Criar classes de equivalência"/></td> 
+                            <td> <h:graphicImage id="imagembug3" library="imagens" name="bug2.png"/> 
+                        </td> </tr>  
+                            
+                        <tr><td><h:outputLabel id="lblPasso4" value="4. Montar casos de teste"/></td> 
+                            <td> <h:graphicImage id="imagembug4" library="imagens" name="bug1.png"/> 
+                        </td> </tr>     
+                    </table>
+                
+                
                     <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
@@ -53,7 +74,8 @@
                     </h:form>
                 </p:layoutUnit>
                 
-                <p:layoutUnit position="center">                    
+                <p:layoutUnit position="center" styleClass="layoutCenter"> 
+                    <br/>
                   <center>                      
                       <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
                       <br></br>
@@ -102,7 +124,7 @@
                        <f:ajax />
                   </h:commandButton>-->
                   
-                  <h:commandButton id="btnPreencherCT"  action="#{escolhe.mostrarTelaClasseJUnit()}" value="Montar classe JUnit">
+                  <h:commandButton id="btnPreencherCT"  action="#{escolhe.montarCasosTeste()}" value="Montar classe JUnit">
                        <f:ajax />
                   </h:commandButton>
                                    

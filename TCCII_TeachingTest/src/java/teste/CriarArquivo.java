@@ -5,6 +5,7 @@
  */
 package teste;
 
+import java.awt.AWTEventMulticaster;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -18,29 +19,25 @@ import model.Questao;
  * @author THAIS
  */
 public class CriarArquivo {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args){
         
+        String listValores[]; 
+        List<String> arrayAux = new ArrayList<>();
+        String argu = "";
+        String valorCampo = "10,20,30".trim();        
+               
+        listValores = valorCampo.split(",");      
         
-        
-                 
-        String pathCR = "ClasseReferenciaQuestaoUm";
-        ArrayList<String> listaMetodos = new ArrayList();
-        
-        
-            String nomeClasse = pathCR;
-            
-            Class c = (Class)Class.forName(nomeClasse);
-            
-            Method[] m = c.getDeclaredMethods();
-            
-            for (int i = 0; i < m.length; i++){
-                String metodoAux = m[i].toString().substring(m[i].toString().lastIndexOf(".")+1, m[i].toString().lastIndexOf(")")+1);
-                
-                String metodo = metodoAux.replaceAll("\\(.*\\)", "()");
-                    listaMetodos.add(metodo);  
-                    System.out.println(listaMetodos);
-                //}               
+        for(int i=0; i < listValores.length; i++){
+            if(i < listValores.length -1){
+                argu += "\""+ listValores[i] + "\","; 
+            }else{
+                argu += "\""+ listValores[i] + "\"";
             }
-        
+           
         }
+        System.out.println("{" + argu+  "}");      
+        
+    }             
+        
 }

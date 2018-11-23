@@ -23,16 +23,15 @@ and open the template in the editor.
     
     <h:body style="background: whitesmoke">    
         <center>
-        <h:form id="formLogin">
-            <p:messages id="messages" />
+        <h:form id="formLogin">            
                 <br></br>
                 <br></br>
                 <p:outputLabel for="login" value="Login:" />
-                <p:inputText id="login" value="#{loginBean.aluno.loginAluno}" />
+                <p:inputText id="login" value="#{loginBean.aluno.loginAluno}" required="true" requiredMessage="Login obrigatório"/>
                 <br></br>
                 <br></br>
                 <p:outputLabel for="senha" value="Senha:" />
-                <p:inputText id="senha" value="#{loginBean.aluno.senhaAluno}" />
+                <p:inputText id="senha" value="#{loginBean.aluno.senhaAluno}" required="true" requiredMessage="Senha obrigatória"/>
                 <br></br>
                 <br></br>
                 <p:commandButton value="Logar" icon="ui-icon-star"
@@ -40,9 +39,9 @@ and open the template in the editor.
                 </p:commandButton> 
                 <p:commandButton value="Limpar" icon="ui-icon-star"
                                   ajax="false">  
-                </p:commandButton>
-            
+                </p:commandButton>            
         </h:form>
-        </center>    
+            <p:messages id="messages" style="width: 300px"/>
+        </center>         
     </h:body>
 </html>

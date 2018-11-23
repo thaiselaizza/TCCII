@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>
+            </f:facet>
+            
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloTabelaCT.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')" style="background-color: #2e6e9e">
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
+                    
+                    <br/><br/>
+        
+            
+                #{loginBean.mostrarAlunoLogado()}           
+                
+                <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                </p:layoutUnit>    
+                
+                
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
+                    <h:outputLabel id="lblPassos" value="Passos"/><br/><br/>
+                    
+                    <table id="tablePassos">
+                        <tr><td><h:outputLabel id="lblPasso1" value="1. Identificar tipo de condição de entrada"/></td> 
+                            <td> <h:graphicImage id="imagembug1" library="imagens" name="bug2.png"/> 
+                            
+                        </td> </tr>
+                           
+                        <tr><td><h:outputLabel id="lblPasso2" value="2. Identificar condição de entrada"/></td> 
+                            <td> <h:graphicImage id="imagembug2" library="imagens" name="bug2.png"/> 
+                        </td> </tr> 
+                            
+                        <tr><td><h:outputLabel id="lblPasso3" value="3. Criar classes de equivalência"/></td> 
+                            <td> <h:graphicImage id="imagembug3" library="imagens" name="bug2.png"/> 
+                        </td> </tr>  
+                            
+                        <tr><td><h:outputLabel id="lblPasso4" value="4. Criar casos de teste automatizados"/></td> 
+                            <td> <h:graphicImage id="imagembug4" library="imagens" name="bug1.png"/> 
+                        </td> </tr>     
+                    </table>
+                
+                    <br></br>
+                    <br></br>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
+                    
+                    <h:form style="display: none">
+                        Lista de Questões<br /><br />
+                       <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
+                        <h:column >
+                            <h:commandLink value="#{questao.nomeQuestao}" action="#{escolhe.mostrarEnunciado}" >
+                                <f:ajax event="action" render=":textArea" listener="#{escolhe.show(event)}" />
+                                <f:param name="id" value="#{questao.codQuestao}"/>
+                                <f:param name="enun" value="#{questao.enunciadoQuestao}"/>
+                                
+                            </h:commandLink>
+<!--<a href="#" onclick="atualizarQuestao('#{questao.enunciadoQuestao}', '#{questao.codQuestao}')" >
+                               <h:outputText value="#{questao.nomeQuestao}"/>
+                                </a>-->
+                             
+                        </h:column>
+                       </h:dataTable>
+                    </h:form>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center" styleClass="layoutCenter">   
+                    <br/>
+                  <center>                      
+                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <br></br>
+                      <br></br>
+                         
+                      
+                      <h:form id="formCT" style="border-color: #cd0a0a">
+                          <h:dataTable value ="#{escolhe.mostraTabela()}" var = "preencher" id="tabelaCasosTeste" border="1"
+                              
+                            styleClass="tabelaCasosTeste"                            
+                            headerClass="tabelaCasosTeste-header"
+                            rowClasses="tabelaCasosTeste-odd-row,tabelaCasosTeste-even-row">
+                            
+                              
+                            <h:column>    				
+                            <f:facet name = "header">Tipo de condição</f:facet>
+                            <h:inputText id="tipoCondicao" value="#{preencher.respTipoCE}" style="border: 0;background-color: #F9F9F9" readonly="true" size="15"/> 
+                               
+                            </h:column>
+                            
+                            <h:column>
+                            <f:facet name = "header">Condição de entrada</f:facet>
+                               #{preencher.condEntrada}
+                            </h:column>
+[
+                            <h:column>
+                            <f:facet name = "header">Classe válida</f:facet>
+                                #{preencher.valida}
+                            </h:column>
+
+                            <h:column class="colunaV">
+                            <f:facet name = "header">Entrada válida</f:facet>
+                            <h:inputText id="txtValido" size="10"/>
+                            </h:column>
+
+                            <h:column>
+                            <f:facet name = "header">Saída esperada</f:facet>
+                            <h:inputText id="txtSaidaValida" size="10"/>
+                            </h:column>
+
+                            <h:column >
+                            <f:facet name = "header">Classe inválida</f:facet>
+                               #{preencher.invalidaUm} <br></br>                            
+                               #{preencher.invalidaDois}
+                            </h:column>
+
+                            
+                            <h:column>
+                                <f:facet name = "header" >Entrada inválida</f:facet>
+                                <h:dataTable  value="#{preencher.invalidas}" var="invalida" style="padding-left: 2px" id="tabelaColuna">
+                                    <h:column>
+                                        <h:inputText id="txtInvalido" size="10"/>                            
+                                    </h:column>
+                                </h:dataTable>
+                            </h:column>  
+
+                            <h:column>
+                                  <f:facet name = "header">Saída esperada</f:facet>
+                                    <h:dataTable  value="#{preencher.invalidas}" var="inv" style="padding-left: 2px" id="tabelaColunaSE">
+                                        <h:column>
+                                        <h:inputText id="txtSaidaInvalida" size="10"/>
+                                        </h:column>
+                                    </h:dataTable>  
+                            </h:column>
+                            
+                        </h:dataTable>
+                          <br></br>
+                          <div style="margin-left: 920px">   
+                              <h:commandButton id="btnGerarJUnit"  action="#{classeJU.criarClasseJUnit()}" value="Gerar JUnit">
+                            <f:ajax />
+                          </h:commandButton>  
+                          </div>
+                     </h:form>
+                      
+                      
+                      
+                  </center>
+                  
+                  <br></br>
+                  
+                  
+                  
+                  
+                                   
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>

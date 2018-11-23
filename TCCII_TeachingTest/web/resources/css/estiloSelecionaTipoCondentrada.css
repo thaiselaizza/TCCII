@@ -16,23 +16,55 @@ and open the template in the editor.
 
 #btnProximoPasso{
     margin-left: 665px; 
-    
+    margin-top: 100px;
    
 }
 
 #imageExemplo{
     margin-right: 370px;
-    
+    margin-top: -400px;
+}
+
+#labelNomeSistema{
+    color: #e17009;
 }
 
 #labelAlunoLogado{
     margin-left: 1200px;
+    color: #e17009;
 }
 
 #formListaCondicao{
     margin-left: 492px;
 }
 
+
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
 
 
 

@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/11/2018, 20:01:13
+    Author     : THAIS
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/08/2018, 15:12:36
+    Author     : THAIS
+*/
+
+.tabelaCasosTeste{
+    border-collapse:collapse;
+    width: 88%;
+    
+    
+}
+
+.tabelaCasosTeste-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #BBBBBB;
+    padding: 16px;
+    font-size: 15px;
+    
+}
+
+.tabelaCasosTeste-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+        font-size: 16px;
+        
+}
+
+.tabelaCasosTeste-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+        font-size: 16px;
+}
+
+
+#btnGerarJUnit{
+    margin-left: 600px;
+}
+
+#labelNomeSistema{
+    color: #e17009;
+}
+
+#labelAlunoLogado{
+    margin-left: 1200px;
+    color: #e17009;
+}
+
+
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

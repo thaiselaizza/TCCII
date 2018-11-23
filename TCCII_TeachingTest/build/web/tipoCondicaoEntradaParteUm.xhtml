@@ -17,11 +17,13 @@
 
         </h:head>
 
-        <h:body onload="verQuestao('#{escolhe.verQuestao()}')">
+        <h:body onload="verQuestao('#{escolhe.verQuestao()}')" style="background-color: #2e6e9e">
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    TEACHING TEST
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                 
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
+                    
                     <br/><br/>
         
             
@@ -31,9 +33,16 @@
                 </p:layoutUnit>    
                
                 
-                <p:layoutUnit position="west" size="175">
-                    Passo 1<br/><br/>
-                    * Identificar tipo de condição de entrada
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
+                    <h:outputLabel id="lblPassos" value="Passos"/><br/><br/>
+                    
+                    <table id="tablePassos">
+                        <tr><td><h:outputLabel id="lblPasso1" value="1. Identificar tipo de condição de entrada"/></td> 
+                            <td> <h:graphicImage id="imagebug" library="imagens" name="bug1.png"/> 
+                        </td> </tr>
+                    </table>                
+                
+                
                     <h:form style="display: none">
                         Lista de Questões<br /><br />
                        <h:dataTable value="#{listaQuestaoBean.listaQuestao}" var="questao">
@@ -53,12 +62,13 @@
                     </h:form>
                 </p:layoutUnit>
                 
-                <p:layoutUnit position="center">                    
+                <p:layoutUnit position="center" size="250" styleClass="layoutCenter">       
+                    <br/>
                   <center>                      
                       <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
                    
                                        
-                      <h:commandButton id="btnSelecionar"  action="#{escolhe.verDetalhes2()}" value="Selecionar tipo de condição de entrada">
+                      <h:commandButton id="btnSelecionar"  action="#{escolhe.verDetalhes2()}" value="Tipo de condição de entrada">
                        <f:ajax />
                       </h:commandButton>
                   </center>
