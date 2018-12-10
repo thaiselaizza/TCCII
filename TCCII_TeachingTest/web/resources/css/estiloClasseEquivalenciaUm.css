@@ -14,6 +14,15 @@ and open the template in the editor.
     border: 2px solid;
     border-radius: 7.5pt;
     border-color: #e17009;
+    text-align: justify;
+}
+
+#btnClasseRef{
+    
+    margin-top: 204px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
 }
 
 #txtValida{
@@ -22,6 +31,7 @@ and open the template in the editor.
 
 
 #txtInvalida{
+    
     margin-left: 134px;
 }
 
@@ -67,4 +77,22 @@ and open the template in the editor.
 }
 
 
+#imagedica{
+    width: 100px; 
+    height: 100px; 
+    margin-top: -45px;
+    margin-left: 170px;
+    
+    
+}
 
+#labelDica{
+    margin-left:  150px;
+    margin-top: -50px;
+    color: #e17009;
+}
+
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}

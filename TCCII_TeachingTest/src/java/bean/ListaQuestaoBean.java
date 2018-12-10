@@ -19,6 +19,11 @@ public class ListaQuestaoBean {
     private List<Questao> listaQuestao = dao.listaQuestao();
     private Questao questao = new Questao();
 
+    public ListaQuestaoBean() {
+    }
+    
+    
+
     public List<Questao> getListaQuestao() {
         return listaQuestao;
     }

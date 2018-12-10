@@ -1,6 +1,9 @@
 package model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -15,7 +19,8 @@ import javax.persistence.OneToMany;
  * @author THAIS
  */
 @Entity
-public class Aluno {
+@NamedQuery(name="Aluno.findByName", query="SELECT a FROM Aluno a WHERE a.loginAluno = :login")
+public class Aluno implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +30,11 @@ public class Aluno {
     private String loginAluno;
     private String senhaAluno;
     
+    @OneToMany(mappedBy = "aluno")
+    private List<Resposta> respostasAluno;
+    
     @ManyToOne(optional = false)
-    @JoinColumn(name = "alunocodturma")
+    @JoinColumn(name = "codturma")
     private Turma turma;
 
     public Long getCodAluno() {

@@ -1,5 +1,8 @@
 package model;
 
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,8 +26,10 @@ import javax.persistence.OneToOne;
     @NamedQuery(name="TipoCondicaoEntrada.findAll", query="SELECT t FROM TipoCondicaoEntrada t"),
     @NamedQuery(name="TipoCondicaoEntrada.findByName",query="SELECT t FROM TipoCondicaoEntrada t WHERE nomeTipoCondEntrada =:name"),
     @NamedQuery(name="TipoCondicaoEntrada.findCE", query="select t FROM TipoCondicaoEntrada t WHERE nomeTipoCondEntrada =:tipoCE")
+   
+
 })
-public class TipoCondicaoEntrada {
+public class TipoCondicaoEntrada implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +40,8 @@ public class TipoCondicaoEntrada {
     private int qtdClasseInvalida;
     private int qtdClasseValida;
     
-    @OneToOne
-    @JoinColumn(name = "centradacodtipocondentrada")
-    private TipoCondicaoEntrada tipoCondEntrada;
-
-  
+    @OneToMany(mappedBy = "tipoCondicaoEntrada")
+    private List<CondicaoEntrada> condicaoEntrada;
 
     public Long getCodTipoCondEntrada() {
         return codTipoCondEntrada;
@@ -64,11 +67,11 @@ public class TipoCondicaoEntrada {
         this.exemploCondicao = exemploCondicao;
     }
 
-    public String getNomeTipoCondicaoEntrada() {
+    public String getNomeTipoCondEntrada() {
         return nomeTipoCondEntrada;
     }
 
-    public void setNomeTipoCondicaoEntrada(String nomeTipoCondEntrada) {
+    public void setNomeTipoCondEntrada(String nomeTipoCondEntrada) {
         this.nomeTipoCondEntrada = nomeTipoCondEntrada;
     }
 
@@ -88,15 +91,18 @@ public class TipoCondicaoEntrada {
         this.qtdClasseValida = qtdClasseValida;
     }
 
-    public TipoCondicaoEntrada getTipoCondEntrada() {
-        return tipoCondEntrada;
+    public List<CondicaoEntrada> getCondicaoEntrada() {
+        return condicaoEntrada;
     }
 
-    public void setTipoCondEntrada(TipoCondicaoEntrada tipoCondEntrada) {
-        this.tipoCondEntrada = tipoCondEntrada;
+    public void setCondicaoEntrada(List<CondicaoEntrada> condicaoEntrada) {
+        this.condicaoEntrada = condicaoEntrada;
     }
+
+  
 
     
     
+  
     
 }

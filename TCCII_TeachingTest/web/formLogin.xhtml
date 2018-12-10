@@ -22,23 +22,36 @@ and open the template in the editor.
 
     
     <h:body style="background: whitesmoke">    
+        
+        <h:graphicImage id="imagemlogo" library="imagens" name="logo.png"/> 
+        <div style="margin-top: -85px;margin-left: 140px">
+            <h2><h:outputLabel id="labelsistema" value="TEACHING TEST"/></h2>
+        </div>
+        <br></br>
+        <div style="margin-top: -45px;margin-left: 140px">
+            <h3><h:outputLabel id="labelnome" value="Ambiente de apoio ao ensino de Teste de Software"/></h3>
+        </div>
         <center>
         <h:form id="formLogin">            
                 <br></br>
                 <br></br>
-                <p:outputLabel for="login" value="Login:" />
-                <p:inputText id="login" value="#{loginBean.aluno.loginAluno}" required="true" requiredMessage="Login obrigatório"/>
+                <p:outputLabel for="login" value="Login"/>
+                
+                <p:inputText id="login" value="#{loginBean.aluno.loginAluno}" required="true" 
+                             requiredMessage="Login obrigatório" style="width: 210px;margin-left: 8px"/>
                 <br></br>
                 <br></br>
-                <p:outputLabel for="senha" value="Senha:" />
-                <p:inputText id="senha" value="#{loginBean.aluno.senhaAluno}" required="true" requiredMessage="Senha obrigatória"/>
+                <p:outputLabel for="senha" value="Senha" />
+                
+                <p:password id="senha" value="#{loginBean.aluno.senhaAluno}" 
+                             required="true" requiredMessage="Senha obrigatória" style="width: 210px;"/>
                 <br></br>
                 <br></br>
-                <p:commandButton value="Logar" icon="ui-icon-star"
-                                 action="#{loginBean.login()}" ajax="false">  
+                <p:commandButton value="Logar" action="#{loginBean.login()}" ajax="false" 
+                                 style="margin-left: 65px;width: 105px;">  
                 </p:commandButton> 
-                <p:commandButton value="Limpar" icon="ui-icon-star"
-                                  ajax="false">  
+                <p:commandButton value="Limpar" 
+                                 ajax="false" type="reset" style="width: 98px;margin-left: 10px">  
                 </p:commandButton>            
         </h:form>
             <p:messages id="messages" style="width: 300px"/>

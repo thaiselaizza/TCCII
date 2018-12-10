@@ -62,7 +62,7 @@ public class ClasseReferenciaQuestaoUmTest {
     public void casoTeste2(){ 
 
         try{
-            String[] args = {"4"};
+            String[] args = {"8"};
             ClasseReferenciaQuestaoUm.main(args);
             String resultadoEsperado = "Valor rejeitado";
             String resultadoAtual = this.buf.readLine();
@@ -76,35 +76,7 @@ public class ClasseReferenciaQuestaoUmTest {
     public void casoTeste3(){ 
 
         try{
-            String[] args = {"38"};
-            ClasseReferenciaQuestaoUm.main(args);
-            String resultadoEsperado = "V";
-            String resultadoAtual = this.buf.readLine();
-            assertEquals(resultadoEsperado,resultadoAtual);
-        } catch (Exception e){
-            fail("Exception occurred: " + e.getMessage());
-        }
-    } 
-
-    @Test
-    public void casoTeste4(){ 
-
-        try{
-            String[] args = {"11"};
-            ClasseReferenciaQuestaoUm.main(args);
-            String resultadoEsperado = "Valor aceito";
-            String resultadoAtual = this.buf.readLine();
-            assertEquals(resultadoEsperado,resultadoAtual);
-        } catch (Exception e){
-            fail("Exception occurred: " + e.getMessage());
-        }
-    } 
-
-    @Test
-    public void casoTeste5(){ 
-
-        try{
-            String[] args = {"1"};
+            String[] args = {"89"};
             ClasseReferenciaQuestaoUm.main(args);
             String resultadoEsperado = "Valor rejeitado";
             String resultadoAtual = this.buf.readLine();

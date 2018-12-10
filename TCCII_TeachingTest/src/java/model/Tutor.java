@@ -5,7 +5,9 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ import javax.persistence.OneToMany;
  * @author THAIS
  */
 @Entity
-public class Tutor {
+public class Tutor implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +31,10 @@ public class Tutor {
     private String senhaTutor;
     
     @OneToMany(mappedBy = "tutor")
-    private Collection<Turma> turmas;
+    private List<Turma> turmas;
     
     @OneToMany(mappedBy = "tutor")
-    private Collection<Questao> questoes;
+    private List<Questao> questoes;
 
     public Long getCodTutor() {
         return codTutor;
@@ -66,21 +68,11 @@ public class Tutor {
         this.senhaTutor = senhaTutor;
     }
 
-    public Collection<Turma> getTurmas() {
+    public List<Turma> getTurmas() {
         return turmas;
     }
 
-    public void setTurmas(Collection<Turma> turmas) {
-        this.turmas = turmas;
-    }
-
-    public Collection<Questao> getQuestoes() {
-        return questoes;
-    }
-
-    public void setQuestoes(Collection<Questao> questoes) {
-        this.questoes = questoes;
-    }
+  
 
     
 

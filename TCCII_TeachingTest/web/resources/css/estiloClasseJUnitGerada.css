@@ -9,51 +9,103 @@ and open the template in the editor.
 */
 
 
-#txtClasseReferencia{
+#labelClasseJU{
     
-    margin-left: -850px;
-    resize: none;
-    overflow-y: scroll;    
-    border: 3px solid;
+     margin-left: 142px;
     
 }
 
-
-
-#labelCR{
-    margin-left: 142px;
+#btnListaQuestoes{
     
+    margin-top: 112px;;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
+
+#labelresultadoJU{
+    margin-left: 400px;
+}
+
+#textClasseJU{
+    margin-top: 5px;
+    margin-left: 20px;
+    border: 2px solid;
+    border-color: #e17009;
+    resize: none;
+    
+}
+
+#btnExecJUnit{
+    margin-top: 313px;
+    margin-left: 487px;
 }
 
 #labelJU{
+    
     margin-left: 230px;
     
     
 }
 
-#btnCriarClasse{
-    margin-left: 770px;
+
+
+#labelSaidaJU{
+    margin-bottom: -300px;
+    border: 2px solid;
+    border-color: #2e6e9e;
+    resize: none;
 }
 
-#btnConcluir{
-    margin-left: 10px;
+#labelNomeSistema{
+    color: #e17009;
+}
+
+#labelAlunoLogado{
+    margin-left: 1200px;
+    color: #e17009;
 }
 
 
-#form{
-    margin-left: 300px;    
-    margin-top: -245px;
-    border-style: solid;
-    height: 230px;
-    width: 575px;
-    text-align: left;
+.ui-layout-unit{
+    
+    padding: 0;
+
 }
 
 
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
 
 
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
+
+#imageexe{
+    margin-left: 630px;
+    margin-bottom: -350px;
+    width: 60px;
+    height: 60px;
+}
 
 
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 
 
 

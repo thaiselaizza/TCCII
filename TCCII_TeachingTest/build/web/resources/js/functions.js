@@ -51,5 +51,9 @@ function mostrarClasseJUnit(){
     window.open('classeJUnit.xhtml','Classe JUnit', "status=no, width=600, height=480");
 }
 
+function mostrarTelaQuestoesRespondidas(){
+    window.open('telaVisualizarQuestoesRespondidas.xhtml','Questões Respondidas'," status=no, width=900, height=580, center");
+}
+
 
 

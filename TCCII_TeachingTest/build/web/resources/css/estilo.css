@@ -10,8 +10,19 @@ and open the template in the editor.
 
 
 #btnClasseRef{
-    margin-left: 560px;
+    
+    margin-top: 300px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
 }
+
+#btnQR{
+    
+    margin-left: 12px;
+    color: #e17009;
+}
+
 
 #btnIniciar{
     margin-left: 810px;
@@ -23,7 +34,7 @@ and open the template in the editor.
 }
 
 #labelNomeSistema{
-    color: #e17009;
+    color:#e17009;
 }
 
 
@@ -48,13 +59,17 @@ and open the template in the editor.
 .layoutWest .ui-layout-unit-content{
     background: whitesmoke;
     
+    
 }
 
 .layoutWest.ui-layout-unit{
     border: none;
 }
 
-
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 
 
 

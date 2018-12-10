@@ -30,6 +30,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                
                 
@@ -60,21 +64,29 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="center" size="250" styleClass="layoutCenter">       
                     <br/>
                   <center>                      
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>                       
                    
                                        
                       <h:commandButton id="btnSelecionar"  action="#{escolhe.verDetalhes2()}" value="Tipo de condição de entrada">
                        <f:ajax />
                       </h:commandButton>
                   </center>
-                 
+                    <div style="margin-bottom:  -25px">
+                    <h:outputLabel id="labelDica" value="Dica!"/>
+                    </div>
+                    <h:graphicImage id="imagedica" library="imagens" name="lamp.gif"/>
+                    
+                    <br></br>
                     #{passo.mostrarDicaTipoCondicao()}
-                    <h:inputTextarea id="textAreaDicaTC" cols="55" rows="4" value="#{passo.textoDica}"/>
+                    
+                    <h:inputTextarea id="textAreaDicaTC" cols="55" rows="5" value="#{passo.textoDica}" readonly="true"/>
                     
                     
                                      

@@ -89,28 +89,30 @@ public class TipoCondicaoEntradaBean {
         
         
         System.out.println("Valor mudou");
+        
         if(e.getNewValue() == null || e == null){
             imagem = null;
         }
         else{
             System.out.println(e.getNewValue().toString()) ;
             String tceSelecionada = e.getNewValue().toString();
-            if(tceSelecionada.equals("Intervalo")){
+            
+            if(tceSelecionada.equals("intervalo")){
 
                 imagem = "intervalo.png"; 
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("entrada", "intervalo");
             }
-            if(tceSelecionada.equals("Valor específico")){
+            if(tceSelecionada.equals("valor especifico")){
 
                 imagem = "valor_especifico.png";
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("entrada", "valor especifico");
             }
-            if(tceSelecionada.equals("Conjunto de valores")){
+            if(tceSelecionada.equals("conjunto de valores")){
 
                 imagem = "conjunto_valores.png"; 
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("entrada", "conjunto de valores");
             }
-            if(tceSelecionada.equals("Condição lógica")){
+            if(tceSelecionada.equals("condicao logica")){
 
                 imagem = "condicao_logica.png"; 
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("entrada", "condicao logica");

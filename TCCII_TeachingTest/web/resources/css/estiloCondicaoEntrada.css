@@ -15,11 +15,13 @@ and open the template in the editor.
 }
 
 #textAreaDicaTC{
-    margin-left: 145px;
+    margin-left: 145px;  
+    margin-top: -10px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
-    border-color: #e17009;;
+    border-color: #e17009;
+    text-align: justify;
 }
 
 #labelNomeSistema{
@@ -63,4 +65,37 @@ and open the template in the editor.
 
 .layoutWest.ui-layout-unit{
     border: none;
+}
+
+#imagedica{
+    width: 100px; 
+    height: 100px; 
+    margin-top: -50px;
+    margin-left: 170px;
+    
+    
+}
+
+#labelDica{
+    margin-left:  150px;
+    margin-top: -50px;
+    color: #e17009;
+}
+
+
+#btnCondEnt{
+    margin-left:  553px;
+}
+
+#btnClasseRef{
+    
+    margin-top: 330px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
+
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
 }

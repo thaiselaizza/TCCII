@@ -10,8 +10,16 @@ and open the template in the editor.
 
 #form\:labelCondEntrada{
     margin-left: 470px;
+    margin-bottom: 240px;
     
+}
+
+#btnClasseRef{
     
+    margin-top: 252px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
 }
 
 #form\:textCondicaoEntrada{
@@ -21,7 +29,7 @@ and open the template in the editor.
 
 #form\:btnProximoPasso{
     margin-left: 650px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #textAreaDicaCondEntrada{
@@ -31,6 +39,7 @@ and open the template in the editor.
     border: 2px solid;
     border-radius: 7.5pt;
     border-color: #e17009;
+    text-align: justify;
 }
 
 #labelNomeSistema{
@@ -70,4 +79,28 @@ and open the template in the editor.
     border: none;
 }
 
+#imagedicaDois{
+    width: 100px; 
+    height: 100px; 
+    margin-top: -45px;
+    margin-left: 170px;
+    
+    
+}
 
+#labelDicaDois{
+    margin-left:  150px;
+    margin-top: -50px;
+    color: #e17009;
+}
+
+
+#mensagemCE{
+    margin-top: -200px;
+    margin-left: -100px;
+}
+
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}

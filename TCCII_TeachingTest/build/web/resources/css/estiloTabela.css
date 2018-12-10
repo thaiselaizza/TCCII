@@ -10,7 +10,7 @@ and open the template in the editor.
 
 .tabelaCasosTeste{
     border-collapse:collapse;
-    width: 78%;
+    width: 79%;
     
 }
 
@@ -19,7 +19,7 @@ and open the template in the editor.
     background:none repeat scroll 0 0 #E5E5E5;
     border-bottom:1px solid #BBBBBB;
     padding: 16px;
-    font-size: 17px;
+    font-size: 15px;
     
 }
 
@@ -27,31 +27,27 @@ and open the template in the editor.
 	text-align:center;
 	background:none repeat scroll 0 0 #F9F9F9;
 	border-top:1px solid #BBBBBB;
-        
+        font-size: 17px;
 }
 
 .tabelaCasosTeste-even-row{
 	text-align:center;
 	background:none repeat scroll 0 0 #F9F9F9;
 	border-top:1px solid #BBBBBB;
-        
+        font-size: 17px;
 }
 
 
 
-#btnAddTipoCondicao{
-    margin: 2px;
-    margin-top: 0px;
-    margin-left: 580px;
+#btnClasseRef{
+    
+    margin-top: 156px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
 }
 
-#btnAddCondicaoEntrada{
-    margin: 2px;
-}
 
-#btnPreencherCT{
-    margin: 2px;
-}
 
 #labelNomeSistema{
     color: #e17009;
@@ -91,5 +87,8 @@ and open the template in the editor.
 }
 
 
-
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 

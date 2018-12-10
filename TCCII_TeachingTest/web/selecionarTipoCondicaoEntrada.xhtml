@@ -30,6 +30,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                
                 
@@ -60,12 +64,14 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="center">        
                     <br/>
                   <center>                      
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>                       
                       <br></br>
                       
                       
@@ -74,11 +80,13 @@
                       <h:form id="formListaCondicao">
                           <h:selectOneMenu id="listBox" onchange = "submit()" style="width: 320px"  
                                            valueChangeListener ="#{tipoCondicao.valueChange}">  
-                              <f:selectItem itemLabel="" itemValue="#{null}"/>
+                              <f:selectItem itemLabel="Selecionar" itemValue="#{null}"/>
                               <f:selectItems value="#{tipoCondicao.listaTipoCondicaoEntrada}" var="t" 
-                                             itemLabel="#{t.nomeTipoCondicaoEntrada}" itemValue="#{t.nomeTipoCondicaoEntrada}"/>
+                                             itemLabel="#{t.nomeTipoCondEntrada}" itemValue="#{t.nomeTipoCondEntrada}"/>
                           </h:selectOneMenu>                        
                       </h:form>
+                      
+                      
                       
                       <div style="margin-left: 5px;margin-top: 100px;">    
                          <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes3()}" value="Próximo passo">
@@ -86,14 +94,14 @@
                          </h:commandButton>                
                       </div>    
                       
-                       
+                      <div style="margin-right: 10px;margin-top: -100px;"> 
                       <h:graphicImage id="imageExemplo" library="imagens" name="#{tipoCondicao.imagem}"/>
-                      
-                      <br/><br/>
-                        
+                      </div> 
                       
                   </center>                 
-                                                    
+                     
+                      
+                                                   
                     
                 </p:layoutUnit>
 

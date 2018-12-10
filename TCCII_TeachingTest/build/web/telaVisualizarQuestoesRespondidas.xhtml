@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>
+            </f:facet>
+            
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloRespostas.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+        <h:body style="background-color: #2e6e9e">
+            <p:layout fullPage="true">
+                  
+               <p:layoutUnit position="center" styleClass="layoutCenter"> 
+                    <br/>
+                  <center>                      
+                                           
+                      <h:form>
+                          <h:dataTable id="tabelaCasosTeste" value="#{respostaBean.mostrarRespostas()}" 
+                                       var="campo" border="1"
+                              
+                            styleClass="tabelaCasosTeste"
+                            headerClass="tabelaCasosTeste-header"
+                            rowClasses="tabelaCasosTeste-odd-row,tabelaCasosTeste-even-row">
+            
+                            <h:column>    				
+                            <f:facet name = "header">Questão</f:facet>    				
+                               #{campo.nomeQuestao}
+                            </h:column>
+                              
+                            <h:column>
+                            <f:facet name = "header">Resposta</f:facet>
+                                
+                            <table width="100%" height="80%">
+                                <tr >
+                                    <td><h:outputLabel value="Tipo de codição: "/></td>
+                                    <td> #{campo.nomeTipoCondEntrada} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Condição de entrada: "/></td>
+                                    <td> #{campo.condEntrada} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Classe válida: "/></td>
+                                    <td> #{campo.classeValida} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Entrada válida: "/></td>
+                                    <td> #{campo.entradaValida} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Saída esperada válida: "/></td>
+                                    <td> #{campo.saidaValida} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Entrada inválida 1: "/></td>
+                                    <td> #{campo.entradaInvalidaUm} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Saída inválida esperada: "/></td>
+                                    <td> #{campo.saidaInvalidaUm} </td>
+                                </tr>
+                                
+                                 <tr >
+                                    <td><h:outputLabel value="Entrada inválida 2: "/></td>
+                                    <td> #{campo.entradaInvalidaDois} </td>
+                                </tr>
+                                
+                                <tr >
+                                    <td><h:outputLabel value="Saída inválida esperada: "/></td>
+                                    <td> #{campo.saidaInvalidaDois} </td>
+                                </tr>
+                            </table>
+                                
+                            </h:column>
+                        </h:dataTable>
+                     </h:form>
+                      
+                  </center>
+                  
+                  
+               </p:layoutUnit>
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>

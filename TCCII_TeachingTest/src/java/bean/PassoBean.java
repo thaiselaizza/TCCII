@@ -48,28 +48,30 @@ public class PassoBean {
         
     }
     
+    public void mostrarDicaTipoCondicao(){
+        this.textoDica = dao.getDicaTipoCondicao(2).getPassoDica();
+    }
+    
+    
     public void mostrarPassoDois(){
-        this.textoPasso = dao.getPassoDois(2).getPassoDica();
+        this.textoPasso = dao.getPassoDois(3).getPassoDica();
         System.out.println(textoPasso);
         
+    }
+    
+    
+    public void mostrarDicaCondicaoEntrada(){
+        this.textoDica = dao.getDicaTipoCondicao(4).getPassoDica();
     }
     
     public void mostrarPassoTres(){
-        this.textoPasso = dao.getPassoTres(3).getPassoDica();
+        this.textoPasso = dao.getPassoTres(5).getPassoDica();
         System.out.println(textoPasso);
         
     }
-    
-    public void mostrarDicaTipoCondicao(){
-        this.textoDica = dao.getDicaTipoCondicao(5).getPassoDica();
-    }
-    
-    public void mostrarDicaCondicaoEntrada(){
-        this.textoDica = dao.getDicaTipoCondicao(6).getPassoDica();
-    }
-    
+       
     public void mostrarDicaClassesEquivalenciaUm(){
-        this.textoDica = dao.getDicaTipoCondicao(7).getPassoDica();
+        this.textoDica = dao.getDicaTipoCondicao(6).getPassoDica();
     }
     
 }

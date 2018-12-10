@@ -2,12 +2,14 @@ package bean;
 
 import util.ConnectionFactory;
 import dao.AlunoDAO;
+import java.io.IOException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import model.Aluno;
 
 /**
@@ -49,10 +51,17 @@ public class LoginBean {
     public void setAluno(Aluno aluno){
     
         this.aluno = aluno;
-}
+    }
+    
+    public String efetuarLogout() throws IOException{
+        FacesContext fc = FacesContext.getCurrentInstance();  
+        HttpSession sessao = (HttpSession) fc.getExternalContext().getSession(false);  
+        sessao.invalidate(); 
+        return "formLogin.xhtml";
+    }
     
     public void mostrarAlunoLogado(){
-        
+        aluno = alunoDao.buscarPorLogin(aluno.getLoginAluno());
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("aluno", aluno);
         Aluno aluno = (Aluno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("aluno");
         

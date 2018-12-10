@@ -30,6 +30,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                 
                 
@@ -65,6 +69,8 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
                 </p:layoutUnit>
                 
                 <p:layoutUnit  position="center" styleClass="layoutCenter">  
@@ -72,7 +78,7 @@
                    <br/>     
                     
                   <center>                    
-                      <h:inputTextarea id="textArea" cols="100" rows="6" />                       
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>                       
                       <br></br>
                       <br></br>
                                      
@@ -80,18 +86,29 @@
                       
                       
                   </center>
-                    
+                    <div style="margin-bottom:  -25px">
+                    <h:outputLabel id="labelDicaDois" value="Dica!"/>
+                    </div>
+                    <h:graphicImage id="imagedicaDois" library="imagens" name="lamp.gif"/>
                     #{passo.mostrarDicaCondicaoEntrada()}
                     <center>
-                    <h:inputTextarea id="textAreaDicaCondEntrada" cols="55" rows="4" value="#{passo.textoDica}"/>
+                        <h:inputTextarea id="textAreaDicaCondEntrada" cols="55" rows="5" value="#{passo.textoDica}" readonly="true"/>
                     
                     <h:form id="form">
-                      <h:outputLabel id="labelCondEntrada" value="Informe a condição de entrada"/>  
-                         <h:inputText id="textCondicaoEntrada"  size="29"/> 
-                    <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes5()}" value="Próximo passo">
-                       <f:ajax />
-                    </h:commandButton>                 
+                        <h:outputLabel id="labelCondEntrada" value="Informe a condição de entrada"> 
+                            <h:inputText id="textCondicaoEntrada" label="Condição de entrada" size="29" required="true" /> 
+                            
+                            
+                            <h:commandButton id="btnProximoPasso"  action="#{escolhe.verDetalhes5()}" value="Próximo passo" >
+                             <!--<f:ajax />-->
+                            </h:commandButton>
+                        </h:outputLabel>
+                        <div style="margin-top: 60px;margin-right: 340px;">
+                        <h:message id="mensagemCE" for="textCondicaoEntrada" style="color:red" />
+                        </div>
+                                     
                   </h:form>
+                
                     </center>
                 </p:layoutUnit>
                 

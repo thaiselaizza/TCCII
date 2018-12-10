@@ -59,6 +59,7 @@ public class ClasseReferenciaBean {
                 texto += linha + "\n";
  
             linha = lerArq.readLine(); // lê da segunda até a última linha
+                System.out.println(linha);
       }
  
       arq.close();

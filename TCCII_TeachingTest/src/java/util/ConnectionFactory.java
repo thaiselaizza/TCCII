@@ -18,11 +18,17 @@ public class ConnectionFactory {
     private static EntityManagerFactory entityManagerFactory;
     
     public static EntityManager getEntityManager(){
+        /*
         if(entityManagerFactory == null || !entityManagerFactory.isOpen()){
             System.out.println("Criando entityManager");
             entityManagerFactory = Persistence.createEntityManagerFactory("TestePU");
-              
         }
+        */
+        if(entityManagerFactory == null){
+            System.out.println("Criando entityManager");
+            entityManagerFactory = Persistence.createEntityManagerFactory("TestePU");
+        }
+        
         return entityManagerFactory.createEntityManager();
     }
     public static void closeEntityFactory(){

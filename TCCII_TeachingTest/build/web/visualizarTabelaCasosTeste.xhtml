@@ -29,6 +29,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                 
                 
@@ -49,7 +53,7 @@
                             <td> <h:graphicImage id="imagembug3" library="imagens" name="bug2.png"/> 
                         </td> </tr>  
                             
-                        <tr><td><h:outputLabel id="lblPasso4" value="4. Montar casos de teste"/></td> 
+                        <tr><td><h:outputLabel id="lblPasso4" value="4. Criar casos de teste automatizados"/></td> 
                             <td> <h:graphicImage id="imagembug4" library="imagens" name="bug1.png"/> 
                         </td> </tr>     
                     </table>
@@ -72,12 +76,14 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                     <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                    </h:commandButton>
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="center" styleClass="layoutCenter"> 
                     <br/>
                   <center>                      
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <h:inputTextarea id="textArea" cols="106" rows="6"/>                       
                       <br></br>
                       <br></br>
                          
@@ -115,7 +121,7 @@
                   </center>
                   
                   <br></br>
-                  
+                  <div style="margin-left: 640px">
                   <h:commandButton id="btnAddTipoCondicao"  action="#{escolhe.addTipoCondicaoEntrada()}" value="+ Condição entrada">
                        <f:ajax />
                   </h:commandButton>   
@@ -127,7 +133,7 @@
                   <h:commandButton id="btnPreencherCT"  action="#{escolhe.montarCasosTeste()}" value="Montar classe JUnit">
                        <f:ajax />
                   </h:commandButton>
-                                   
+                  </div>                 
                     
                 </p:layoutUnit>
 

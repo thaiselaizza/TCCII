@@ -2,8 +2,11 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import model.Aluno;
+import util.ConnectionFactory;
 
 /**
  *
@@ -11,16 +14,22 @@ import model.Aluno;
  */
 public class AlunoDAO {
     
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
     
+    public AlunoDAO(){
+    }
     public AlunoDAO(EntityManager entityManager){
         this.entityManager = entityManager;
+    }
+    
+    public Aluno buscarPorLogin(String nome){
+        Query query = entityManager.createNamedQuery("Aluno.findByName").setParameter("login", nome);
+        return (Aluno) query.getSingleResult();
     }
 
 
     
     public boolean validaSeha(Aluno aluno){
-        
         TypedQuery<Long> query = entityManager.createQuery("select count(a) from Aluno as a "
                 + " where a.loginAluno = :login "
                 + " and a.senhaAluno = :senha ", Long.class);
@@ -34,5 +43,10 @@ public class AlunoDAO {
         }else{
             return false;
         }
+    }
+
+    public Aluno buscar(Long idAluno) {
+        System.out.println("ID ALUNO: " + idAluno);
+        return entityManager.find(Aluno.class, idAluno);
     }
 }

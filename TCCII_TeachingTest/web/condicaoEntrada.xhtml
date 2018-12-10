@@ -30,6 +30,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/>
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>
 
                
@@ -66,12 +70,14 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
                 </p:layoutUnit>
                    
                 <p:layoutUnit position="center" styleClass="layoutCenter">    
                     <br/>
                   <center>
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>
                       
                       <h:commandButton id="btnCondEnt"  action="#{escolhe.verDetalhes4()}" value="Identificar condições de entrada">
                                               
@@ -80,9 +86,11 @@
                      
                       
                   </center>
-                   
+                    
+                    
+                    <br></br>
                     #{passo.mostrarPassoDois()}
-                    <h:inputTextarea id="textAreaPassoUm" cols="30" rows="4" value="#{passo.textoPasso}"/>
+                    <h:inputTextarea id="textAreaPassoDois" cols="30" rows="4" value="#{passo.textoPasso}" readonly="true"/>
                     
                 </p:layoutUnit>
 

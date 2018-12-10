@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ import javax.persistence.OneToMany;
  * @author THAIS
  */
 @Entity
-public class Turma {
+public class Turma implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +30,7 @@ public class Turma {
     private String nomeTurma;
     
     @ManyToOne(optional = false)
-    @JoinColumn(name="turmacodtutor")
+    @JoinColumn(name="codtutor")
     private Tutor tutor;
     
     @OneToMany(mappedBy = "turma")

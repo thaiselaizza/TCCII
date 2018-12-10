@@ -11,7 +11,7 @@
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>TEACHING TEST</title>
             </f:facet>
-            <link rel="stylesheet" type="text/css" href="resources/css/estiloTelaCondicaoEntrada.css"/>
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloTipoCondicaoEntradaTeste.css"/>
             <h:outputScript name="js/functions.js"/>
 
         </h:head>
@@ -30,11 +30,13 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>
-
                 
-
-                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
+                 <p:layoutUnit position="west" size="250" styleClass="layoutWest">
                     <h:outputLabel id="lblPassos" value="Passos"/><br/><br/>
                     
                     <table id="tablePassos">
@@ -62,14 +64,16 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                     </h:commandButton>
                 </p:layoutUnit>
                    
                 <p:layoutUnit position="center" styleClass="layoutCenter">   
                     <br/>
                   <center>
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>
                       
-                      <h:commandButton id="btnCondEnt"  action="#{escolhe.verDetalhes1()}" value="Tipo de condição de entrada ">
+                      <h:commandButton id="btnTipoCondEnt"  action="#{escolhe.verDetalhes1()}" value="Tipo de condição de entrada ">
                                               
                       <f:ajax />
                     </h:commandButton>
@@ -78,7 +82,7 @@
                   </center>
                    
                     #{passo.mostrarPassoUm()}
-                    <h:inputTextarea id="textAreaPassoUm" cols="30" rows="4" value="#{passo.textoPasso}"/>
+                    <h:inputTextarea id="textAreaPassoUm" cols="35" rows="3" value="#{passo.textoPasso}" readonly="true"/>
                     
                 </p:layoutUnit>
 

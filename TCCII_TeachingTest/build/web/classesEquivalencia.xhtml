@@ -29,6 +29,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/>
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>
 
                 
@@ -69,12 +73,14 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                    </h:commandButton>
                 </p:layoutUnit>
                    
                 <p:layoutUnit position="center" styleClass="layoutCenter">  
                     <br/>
                   <center>
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/>
                       
                       <h:commandButton id="btnClasses"  action="#{escolhe.verDetalhes6()}" value="Criar classes de equivalência">
                                               
@@ -85,7 +91,7 @@
                   </center>
                    
                     #{passo.mostrarPassoTres()}
-                    <h:inputTextarea id="textAreaPassoTres" cols="60" rows="4" value="#{passo.textoPasso}"/>
+                    <h:inputTextarea id="textAreaPassoTres" cols="60" rows="5" value="#{passo.textoPasso}" readonly="true"/>
                     
                 </p:layoutUnit>
 

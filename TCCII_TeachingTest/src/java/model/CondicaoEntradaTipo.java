@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,7 @@ import javax.persistence.OneToOne;
  *
  * @author THAIS
  */
-@Entity
+/*@Entity
 public class CondicaoEntradaTipo {
     
     @Id
@@ -22,12 +23,16 @@ public class CondicaoEntradaTipo {
     private Long codCondEntradaTipo;
     private String descricaoCondicao;
     
-    @ManyToOne(optional = false)
-    @JoinColumn(name="condetcodresposta")
-    private Resposta resposta;
-
     @OneToMany(mappedBy = "condicaoEntradaTipo")
-    private Collection<CondicaoEntrada> condicoesEntrada;
+    private List<Resposta> resposta;
+    
+    @OneToMany(mappedBy = "condicaoEntradaTipo")
+    private List<CondicaoEntrada> condicaoEntrada;
+    
+    @ManyToOne
+    @JoinColumn(name = "codcondicaoentradatipo")
+    private TipoCondicaoEntrada tipoCondicaoEntrada;
+  
 
     public Long getCodCondEntradaTipo() {
         return codCondEntradaTipo;
@@ -45,25 +50,13 @@ public class CondicaoEntradaTipo {
         this.descricaoCondicao = descricaoCondicao;
     }
 
-    public Resposta getResposta() {
-        return resposta;
-    }
+ 
 
-    public void setResposta(Resposta resposta) {
-        this.resposta = resposta;
-    }
-
-    public Collection<CondicaoEntrada> getCondicoesEntrada() {
-        return condicoesEntrada;
-    }
-
-    public void setCondicoesEntrada(Collection<CondicaoEntrada> condicoesEntrada) {
-        this.condicoesEntrada = condicoesEntrada;
-    }
-
+ 
     
     
 
     
     
 }
+*/

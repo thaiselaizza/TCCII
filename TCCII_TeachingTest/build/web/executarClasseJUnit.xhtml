@@ -18,20 +18,24 @@
 
         </h:head>
 
-        <h:body  onload="verQuestao('#{escolhe.verQuestao()}')">
+        <h:body  onload="verQuestao('#{escolhe.verQuestao()}')" style="background-color: #2e6e9e">
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    TEACHING TEST
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
                     <br/><br/>
         
             
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                 
-                <p:layoutUnit position="west" size="250">
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
                     <h:outputLabel id="lblPassos" value="Passos"/><br/><br/>
                     
                     <table id="tablePassos">
@@ -71,20 +75,40 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                    <h:commandButton id="btnListaQuestoes" value="Ver lista de questões" action="#{classeJU.voltarListaQuestoes()}">
+                        <f:ajax render="textArea" resetValues="true"/> 
+                    </h:commandButton>
                 </p:layoutUnit>
                     
                 
                 
-                <p:layoutUnit  position="center">  
+                <p:layoutUnit  position="center" styleClass="layoutCenter">  
+                    <br></br>
+                     
+                    <h:outputLabel id="labelClasseJU" value="Classe JUnit"/>
                    
-                      
-                    <h:commandButton id="btnExecJUnit"  action="#{classeJU.executarJUnit()}" value="Executar JUnit" >
-                            <f:ajax />
-                          </h:commandButton> 
+                    <h:outputLabel id="labelresultadoJU" value="Resultados dos casos de teste JUnit"/>
                     
-                               
+                    
+                    <br></br>
+                    #{classeJU.mostrarClasseJunit()}
+                    <h:inputTextarea id="textClasseJU" value="#{classeJU.conteudoJU}" cols="50" rows="18" readonly="true"/>
+                    <br></br>
+                    
+                    
+                  
+                    
+                    
+                 
+                    <div style="margin-left: 490px;margin-top: -390px">
+                        <h:inputTextarea id="labelSaidaJU" value="#{classeJU.saidaJUnit}" cols="80" rows="19" style="font-size: small" readonly="true"/>
+                    </div>
+                    
+                    <h:graphicImage id="imageexe" library="imagens" name="gear.gif"/>
                         
-                        
+                      <h:commandButton id="btnExecJUnit"  action="#{classeJU.executarJUnit()}" value="Executar JUnit" >
+                            <f:ajax event="action" render="labelSaidaJU" listener="#{classeJU.show(event)}"/>
+                          </h:commandButton>     
                   
                     
                 </p:layoutUnit>

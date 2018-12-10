@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/12/2018, 21:54:29
+    Author     : THAIS
+*/
+
+.tabelaCasosTeste{
+    border-collapse:collapse;
+    width: 79%;
+    
+}
+
+.tabelaCasosTeste-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #BBBBBB;
+    padding: 16px;
+    font-size: 15px;
+    
+}
+
+.tabelaCasosTeste-odd-row{
+	text-align:left;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+        font-size: 17px;
+}
+
+.tabelaCasosTeste-even-row{
+	text-align:left;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+        font-size: 17px;
+}

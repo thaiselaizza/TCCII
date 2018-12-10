@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.persistence.EntityManager;
@@ -102,9 +103,11 @@ public class EscolheQuestaoBean {
     public String verDetalhes(){
         String sId = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idQuestao");
         setEnunciado("");
+        
         ArrayList<ComporResposta> listaCompor = new ArrayList();
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("listaCompor",listaCompor);
         return "tipoCondicaoEntradaTeste?faces-redirect=true&amp;id="+sId;
+        
     }
     
     public String verDetalhes1(){
@@ -143,8 +146,9 @@ public class EscolheQuestaoBean {
              
         //String condicaoEntrada = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("textCondicaoEntrada");
         String value = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("form:textCondicaoEntrada");
+     
         CondicaoEntrada condEntrada = new CondicaoEntrada();
-        condEntrada.setCondEntradaResposta(value);
+        condEntrada.setCondEntrada(value);
         ComporResposta resposta = (ComporResposta) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("resposta");
         resposta.setCondicaoEntrada(condEntrada);
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("resposta",resposta);
@@ -169,7 +173,7 @@ public class EscolheQuestaoBean {
         for(ComporResposta compor: listaCompor){
             System.out.println(compor.getRespTipoCE());
             for(RespostaAdicional adicional: compor.getAdicionais()){
-                System.out.println(adicional.getCe().getCondEntradaResposta());
+                System.out.println(adicional.getCe().getCondEntrada());
                 for(ClasseEquivalencia equi: adicional.getEquivalencias()){
                     System.out.println(equi.getClasseValida());
                     System.out.println(equi.getClasseInvalidaUm());
@@ -221,7 +225,8 @@ public class EscolheQuestaoBean {
             
         }
         
-        ArrayList<ComporResposta> listaCompor = (ArrayList<ComporResposta>) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("listaCompor");
+        ArrayList<ComporResposta> listaCompor = (ArrayList<ComporResposta>) 
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("listaCompor");
         listaCompor.add(resposta);
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("listaCompor",listaCompor); 
         System.out.println("TESTE OBJETO COMPOR");
@@ -230,17 +235,7 @@ public class EscolheQuestaoBean {
             System.out.println(c.getCondEntrada());
             System.out.println(c.getValida());
         }
-        /*Iterator it = parameterMap.entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-        }
-        System.out.println("Valida");
-        System.out.println(valida1);
-        System.out.println("Invalida0");
-        System.out.println(invalida1);
-        System.out.println("Invalida1");
-        System.out.println(invalida2);*/
+
         String sId = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idQuestao");
         setEnunciado("");        
         return "visualizarTabelaCasosTeste?faces-redirect=true&amp;id="+sId;

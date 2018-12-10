@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/12/2018, 16:41:26
+    Author     : THAIS
+*/
+
+#textAreaPassoUm{
+    margin-left: 145px;
+    
+    resize: none;
+    border: 2px solid;
+    border-radius: 7.5pt;
+    border-color: #e17009;
+    text-align:justify;
+}
+
+#labelNomeSistema{
+    color: #e17009;
+}
+
+#labelAlunoLogado{
+    margin-left: 1200px;
+    color: #e17009;
+}
+
+#tablePassos{
+    border-style: none;
+    text-align: left;
+    
+}
+
+
+.ui-layout-unit{
+    
+    padding: 0;
+
+}
+
+
+.layoutNorth .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutNorth.ui-layout-unit{
+    
+    border: 0;
+}
+
+
+.layoutWest .ui-layout-unit-content{
+    background: whitesmoke;
+    
+}
+
+.layoutWest.ui-layout-unit{
+    border: none;
+}
+
+#btnTipoCondEnt{
+    
+    margin-left: 577px;
+    
+}
+
+#btnClasseRef{
+    
+    margin-top: 330px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
+
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}

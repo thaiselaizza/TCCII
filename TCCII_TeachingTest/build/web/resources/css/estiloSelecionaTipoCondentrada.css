@@ -12,6 +12,14 @@ and open the template in the editor.
     
 }
 
+#btnClasseRef{
+    
+    margin-top: 300px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
+
 
 
 #btnProximoPasso{
@@ -67,7 +75,10 @@ and open the template in the editor.
 }
 
 
-
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 
 
 

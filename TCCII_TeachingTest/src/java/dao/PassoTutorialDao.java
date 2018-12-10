@@ -1,8 +1,10 @@
 package dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import model.PassosTutorial;
+import util.ConnectionFactory;
 
 /**
  *
@@ -10,7 +12,11 @@ import model.PassosTutorial;
  */
 public class PassoTutorialDao {
     
-    private final EntityManager entityManager ;  //Um atributo final de uma classe pode ter seu valor atribuído uma única vez, seja na própria declaração ou no construtor. 
+   
+    private EntityManager entityManager ;  //Um atributo final de uma classe pode ter seu valor atribuído uma única vez, seja na própria declaração ou no construtor. 
+    
+    public PassoTutorialDao(){
+    }
     
     public PassoTutorialDao(EntityManager entityManager){
         this.entityManager = entityManager;

@@ -29,6 +29,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/> 
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                 
                 
@@ -81,7 +85,7 @@
                 <p:layoutUnit position="center" styleClass="layoutCenter">   
                     <br/>
                   <center>                      
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/>                       
+                      <h:inputTextarea id="textArea" cols="119" rows="5"/>                       
                       <br></br>
                       <br></br>
                          
@@ -147,7 +151,7 @@
                             
                         </h:dataTable>
                           <br></br>
-                          <div style="margin-left: 920px">   
+                          <div style="margin-left: 865px">   
                               <h:commandButton id="btnGerarJUnit"  action="#{classeJU.criarClasseJUnit()}" value="Gerar JUnit">
                             <f:ajax />
                           </h:commandButton>  

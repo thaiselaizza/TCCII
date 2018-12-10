@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ import javax.persistence.NamedQuery;
     
     @NamedQuery(name="PassosTutorial.findById", query="SELECT q FROM PassosTutorial q WHERE codPasso =:id")
 })
-public class PassosTutorial {
+public class PassosTutorial implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

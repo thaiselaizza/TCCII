@@ -8,17 +8,26 @@ and open the template in the editor.
     Author     : THAIS
 */
 
-#btnCondEnt{
+#btnTipoCondEnt{
     
-    margin-left: 553px;
+    margin-left: 575px;
 }
 
-#textAreaPassoUm{
+#btnClasseRef{
+    
+    margin-top: 252px;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
+
+#textAreaPassoDois{
     margin-left: 145px;
     resize: none;
     border: 2px solid;
     border-radius: 7.5pt;
     border-color: #e17009;
+    text-align:justify;
 }
 
 #labelNomeSistema{
@@ -64,7 +73,13 @@ and open the template in the editor.
     border: none;
 }
 
+#btnCondEnt{
+     margin-left: 553px;
+}
 
-
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 
 

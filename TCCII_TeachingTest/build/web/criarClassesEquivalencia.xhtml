@@ -29,6 +29,10 @@
                 #{loginBean.mostrarAlunoLogado()}           
                 
                 <h:outputLabel id="labelAlunoLogado" value="#{loginBean.alunoLogado}"/>
+                <h:form id="logout">
+                    <p:commandLink id="logoff" value="Sair"
+                                   action="#{loginBean.efetuarLogout()}" ajax="false" />
+                </h:form>
                 </p:layoutUnit>    
                 
                 
@@ -68,59 +72,62 @@
                         </h:column>
                        </h:dataTable>
                     </h:form>
+                     <h:commandButton id="btnClasseRef" value="Ver classe de referência" onclick="mostrarClasseReferencia()">
+                    </h:commandButton>
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="center" styleClass="layoutCenter">    
                     <br/>
                   <center>                      
-                      <h:inputTextarea id="textArea" cols="100" rows="6"/> 
+                      <h:inputTextarea id="textArea" cols="100" rows="6" readonly="true"/> 
                       <br></br>
                       <br></br>
                       
                   </center>
+                    <div style="margin-bottom:  -25px">
+                    <h:outputLabel id="labelDica" value="Dica!"/>
+                    </div>
+                    <h:graphicImage id="imagedica" library="imagens" name="lamp.gif"/>
                     
+                    <br></br>
                     #{passo.mostrarDicaClassesEquivalenciaUm()}
-                    <h:inputTextarea id="textAreaDicaClasse" cols="55" rows="4" value="#{passo.textoDica}"/>
+                    <h:inputTextarea id="textAreaDicaClasse" cols="54" rows="3" value="#{passo.textoDica}" readonly="true"/>
                     
                     <br></br>
                     <br></br>
                     
                     
-                    <h:outputText id="txtValida" value="Classe válida     "/>
-                    <h:outputText id="txtInvalida" value="Classe Inválida "/>
+                    
+                    <h:outputLabel id="txtValida" value="Classe válida"/>
+                    <h:outputLabel id="txtInvalida" value="Classe Inválida "/>  
                     
                     <h:form id="formTable">                         
-                    
+                                                  
                         <h:dataTable  value="#{tipoCondicao.getClassesValidas()}" var="valida" id="tabelaClasseValida">
-                        <h:column>
-                            
-                            <h:inputText id="valida" />
-                        </h:column>
-                    </h:dataTable>                   
+                            <h:column>                            
+                                 <h:inputText id="valida" required="true" requiredMessage="*"/>                                                       
+                                 <h:message  for="valida" style="color:red" />
+                            </h:column>
+                        </h:dataTable>                   
                     
                    
-                        
+                       
                         <h:dataTable  value="#{tipoCondicao.getClassesInValidas()}" var="invalida" id="tabelaClasseInvalida" style="margin-left: 245px; margin-top: -33px">
                         <h:column>
                             
-                            <h:inputText id="invalida" />
+                            <h:inputText id="invalida" required="true" requiredMessage="*Campo obrigatório!"/>
+                            <h:message  for="invalida" style="color:red" />                           
                         </h:column>
                     </h:dataTable>
+                      
+                        
+                            
+                   
+                    <h:commandButton id="btnSalvar"  action="#{escolhe.montarLista()}" value="Próximo passo" style="margin-left: 675px">
                        
-                    
-                   <!--
-                    <h:outputLabel id="labelCValida" value="Classe válida"/>
-                    <h:outputLabel id="labelCInvalidaUm" value="Classe inválida"/>  
-                    <br></br>                    
-                    <h:inputText id="textClasseValida"/>                                     
-                    <h:inputText id="textClasseInvalidaUm"/>
-                    <br></br>
-                    <br></br>
-                    <h:inputText id="textClasseInvalidaDois"/>
-                    -->
-                    <h:commandButton id="btnSalvar"  action="#{escolhe.montarLista()}" value="Salvar" style="margin-left: 730px">
-                       <f:ajax />
-                    </h:commandButton>                 
+                    </h:commandButton>    
+                        
+                        
                     </h:form>
                 </p:layoutUnit>
 

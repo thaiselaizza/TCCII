@@ -1,11 +1,18 @@
 package model;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -13,7 +20,11 @@ import javax.persistence.OneToOne;
  * @author THAIS
  */
 @Entity
-public class ClasseEquivalencia {
+@NamedQueries({
+    
+    @NamedQuery(name="ClasseEquivalencia.findById", query="SELECT q FROM ClasseEquivalencia q WHERE codClasseEquivalencia =:id")
+})
+public class ClasseEquivalencia implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +32,19 @@ public class ClasseEquivalencia {
     private String classeInvalidaUm;
     private String classeInvalidaDois;
     private String classeValida;
-    private String classeValidaTrue;
-    private String classeInvalidaFalse;
+
+    @OneToMany(mappedBy = "classeEquivalencia")
+    private List<CondicaoEntrada> condicaoEntrada;
     
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "classeequivcodcondentrada")
-    private CondicaoEntrada condicaoEntrada;
     
-    @OneToOne
-    @JoinColumn(name = "valorcasosteste")
+    
+     
+    @OneToOne(optional = false)
+    @JoinColumn(name = "codvaloresct")
     private ValoresCasosTeste valoresCasosTeste;
+    
+    
+    
 
     public Long getCodClasseEquivalencia() {
         return codClasseEquivalencia;
@@ -64,29 +78,15 @@ public class ClasseEquivalencia {
         this.classeValida = classeValida;
     }
 
-    public String getClasseValidaTrue() {
-        return classeValidaTrue;
-    }
-
-    public void setClasseValidaTrue(String classeValidaTrue) {
-        this.classeValidaTrue = classeValidaTrue;
-    }
-
-    public String getClasseInvalidaFalse() {
-        return classeInvalidaFalse;
-    }
-
-    public void setClasseInvalidaFalse(String classeInvalidaFalse) {
-        this.classeInvalidaFalse = classeInvalidaFalse;
-    }
-
-    public CondicaoEntrada getCondicaoEntrada() {
+    public List<CondicaoEntrada> getCondicaoEntrada() {
         return condicaoEntrada;
     }
 
-    public void setCondicaoEntrada(CondicaoEntrada condicaoEntrada) {
+    public void setCondicaoEntrada(List<CondicaoEntrada> condicaoEntrada) {
         this.condicaoEntrada = condicaoEntrada;
     }
+
+    
 
     public ValoresCasosTeste getValoresCasosTeste() {
         return valoresCasosTeste;
@@ -95,6 +95,8 @@ public class ClasseEquivalencia {
     public void setValoresCasosTeste(ValoresCasosTeste valoresCasosTeste) {
         this.valoresCasosTeste = valoresCasosTeste;
     }
+
+    
 
 
 

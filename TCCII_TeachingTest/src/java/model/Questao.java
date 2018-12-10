@@ -1,5 +1,8 @@
 package model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +23,7 @@ import javax.persistence.OneToMany;
     @NamedQuery(name="Questao.findAll", query="SELECT q FROM Questao q"),
     @NamedQuery(name="Questao.findById", query="SELECT q FROM Questao q WHERE codQuestao =:id")
 })
-public class Questao {
+public class Questao implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +31,15 @@ public class Questao {
     private String nomeQuestao;
     @Column(length = 500, nullable = false, unique = true)
     private String enunciadoQuestao;
-    private String pathClasseReferenciaQuestao;
-    private String pathClasseExecutavel;
+    private String pathClasseReferenciaQuestao;   
+    
+    @OneToMany(mappedBy = "questao")
+    private List<Resposta> respostas;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "codtutor")
+    private Tutor tutor;
     
     public Questao() {
     }
@@ -40,9 +50,7 @@ public class Questao {
         this.pathClasseReferenciaQuestao = pathClasseReferenciaQuestao;
     }
     
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "questaocodtutor")
-    private Tutor tutor;
+    
 
     public Long getCodQuestao() {
         return codQuestao;
@@ -76,22 +84,21 @@ public class Questao {
         this.pathClasseReferenciaQuestao = pathClasseReferenciaQuestao;
     }
 
-    public String getPathClasseExecutavel() {
-        return pathClasseExecutavel;
-    }
-
-    public void setPathClasseExecutavel(String pathClasseExecutavel) {
-        this.pathClasseExecutavel = pathClasseExecutavel;
-    }
-    
-    
-    public Tutor getTutor() {
+  /*  public Tutor getTutor() {
         return tutor;
     }
 
     public void setTutor(Tutor tutor) {
         this.tutor = tutor;
     }
+
+    public List<Resposta> getRespostas() {
+        return respostas;
+    }
+
+    public void setRespostas(List<Resposta> respostas) {
+        this.respostas = respostas;
+    }*/
 
     
     

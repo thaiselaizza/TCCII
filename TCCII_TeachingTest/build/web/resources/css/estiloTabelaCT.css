@@ -50,9 +50,7 @@ and open the template in the editor.
 }
 
 
-#btnGerarJUnit{
-    margin-left: 600px;
-}
+
 
 #labelNomeSistema{
     color: #e17009;
@@ -91,9 +89,19 @@ and open the template in the editor.
     border: none;
 }
 
+#btnClasseRef{
+    
+    margin-top: 112px;;
+    margin-left: 12px;
+    color: #e17009;
+    width: 222px;
+}
 
 
-
+#logout{
+    margin-left: 1208px;
+    color: #e17009;
+}
 
 
 
