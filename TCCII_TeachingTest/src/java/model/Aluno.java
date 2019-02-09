@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -19,7 +20,10 @@ import javax.persistence.OneToMany;
  * @author THAIS
  */
 @Entity
-@NamedQuery(name="Aluno.findByName", query="SELECT a FROM Aluno a WHERE a.loginAluno = :login")
+@NamedQueries({
+            @NamedQuery(name="Aluno.findByName", query="SELECT a FROM Aluno a WHERE a.loginAluno = :login"),
+            @NamedQuery(name="Aluno.findAll", query="SELECT a FROM Aluno a")
+})
 public class Aluno implements Serializable{
     
     @Id
@@ -75,6 +79,14 @@ public class Aluno implements Serializable{
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public List<Resposta> getRespostasAluno() {
+        return respostasAluno;
+    }
+
+    public void setRespostasAluno(List<Resposta> respostasAluno) {
+        this.respostasAluno = respostasAluno;
     }
 
     

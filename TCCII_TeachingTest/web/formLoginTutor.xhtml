@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>TEACHING TEST</title>  
+            </f:facet>
+            <link rel="stylesheet" type="text/css" href="resources/css/estiloLogin.css"/>
+            <h:outputScript name="js/functions.js"/>
+
+        </h:head>
+
+    
+    <h:body style="background: whitesmoke">    
+        
+        <h:graphicImage id="imagemlogo" library="imagens" name="logo.png"/> 
+        <div style="margin-top: -85px;margin-left: 140px">
+            <h2><h:outputLabel id="labelsistema" value="TEACHING TEST"/></h2>
+        </div>
+        <br></br>
+        <div style="margin-top: -45px;margin-left: 140px">
+            <h3><h:outputLabel id="labelnome" value="Ambiente de apoio ao ensino de Teste de Software"/></h3>
+        </div>
+        <center>
+        <h:form id="formLogin">            
+                <br></br>
+                <br></br>
+                <p:outputLabel for="login" value="Login"/>
+                
+                <p:inputText id="login" value="#{loginBean.tutor.loginTutor}" required="true" 
+                             requiredMessage="Login obrigatório" style="width: 210px;margin-left: 8px"/>
+                <br></br>
+                <br></br>
+                <p:outputLabel for="senha" value="Senha" />
+                
+                <p:password id="senha" value="#{loginBean.tutor.senhaTutor}" 
+                             required="true" requiredMessage="Senha obrigatória" style="width: 210px;"/>
+                <br></br>
+                <br></br>
+                <p:commandButton value="Logar" action="#{loginBean.loginTutor()}" ajax="false" 
+                                 style="margin-left: 65px;width: 105px;">  
+                </p:commandButton> 
+                <p:commandButton value="Limpar" 
+                                 ajax="false" type="reset" style="width: 98px;margin-left: 10px">  
+                </p:commandButton>            
+        </h:form>
+            <p:messages id="messages" style="width: 300px"/>
+        </center>         
+    </h:body>
+</html>

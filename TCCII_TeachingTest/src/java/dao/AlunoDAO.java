@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -48,5 +49,12 @@ public class AlunoDAO {
     public Aluno buscar(Long idAluno) {
         System.out.println("ID ALUNO: " + idAluno);
         return entityManager.find(Aluno.class, idAluno);
+    }
+    
+    public List<Aluno> listaAluno(){
+        
+        //System.out.println("Aluno------------------" + aluno.getLoginAluno());
+        Query query = entityManager.createNamedQuery("Aluno.findAll");
+        return query.getResultList();
     }
 }

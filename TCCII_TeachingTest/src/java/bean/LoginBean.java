@@ -2,6 +2,7 @@ package bean;
 
 import util.ConnectionFactory;
 import dao.AlunoDAO;
+import dao.TutorDao;
 import java.io.IOException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import model.Aluno;
+import model.Tutor;
 
 /**
  *
@@ -23,6 +25,10 @@ public class LoginBean {
     private Aluno aluno = new Aluno();
     private AlunoDAO alunoDao = new AlunoDAO(ConnectionFactory.getEntityManager());
     private String alunoLogado = "";
+    private Tutor tutor = new Tutor();
+    private TutorDao tutorDao = new TutorDao(ConnectionFactory.getEntityManager());
+    private String tutorLogado = "";
+    
     
     public String login(){
         
@@ -43,6 +49,26 @@ public class LoginBean {
         }
     }
     
+    
+    public String loginTutor(){
+        
+        boolean validou = tutorDao.validaSenhaTutor(tutor);
+        
+        if(validou){
+            /*FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("aluno", aluno);
+        Aluno aluno = (Aluno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("aluno");
+        System.out.println("Aluno------------------" + aluno.getLoginAluno());*/
+
+            return "/listaAlunos";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+                            "Tutor não encontrado!", 
+                            "Erro no login!"));
+            return "/faces/formLogin";
+        }
+    }
+    
     public Aluno getAluno(){
         
         return aluno;
@@ -52,12 +78,46 @@ public class LoginBean {
     
         this.aluno = aluno;
     }
+
+    public AlunoDAO getAlunoDao() {
+        return alunoDao;
+    }
+
+    public void setAlunoDao(AlunoDAO alunoDao) {
+        this.alunoDao = alunoDao;
+    }
+
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+    public TutorDao getTutorDao() {
+        return tutorDao;
+    }
+
+    public void setTutorDao(TutorDao tutorDao) {
+        this.tutorDao = tutorDao;
+    }
+
+    public String getTutorLogado() {
+        return tutorLogado;
+    }
+
+    public void setTutorLogado(String tutorLogado) {
+        this.tutorLogado = tutorLogado;
+    }
+    
+    
     
     public String efetuarLogout() throws IOException{
         FacesContext fc = FacesContext.getCurrentInstance();  
         HttpSession sessao = (HttpSession) fc.getExternalContext().getSession(false);  
         sessao.invalidate(); 
-        return "formLogin.xhtml";
+        return "telaPerfil.xhtml";
     }
     
     public void mostrarAlunoLogado(){
@@ -78,4 +138,15 @@ public class LoginBean {
         this.alunoLogado = alunoLogado;
     }
     
+    
+    public String mostrarTelaLoginTutor(){
+        
+        return "/formLoginTutor";
+    }
+    
+    public String mostrarTelaLoginAluno(){
+        
+        return "/formLogin";
+    }
 }
+

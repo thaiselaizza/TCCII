@@ -3,35 +3,73 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
     <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>TEACHING TEST</title>
+                <title>TEACHING TEST</title>  
             </f:facet>
-            
-            <link rel="stylesheet" type="text/css" href="resources/css/estiloRespostas.css"/>
+            <link rel="stylesheet" type="text/css" href="resources/css/estilo.css"/>
             <h:outputScript name="js/functions.js"/>
 
         </h:head>
 
         <h:body style="background-color: #2e6e9e">
+
             <p:layout fullPage="true">
-                  
-               <p:layoutUnit position="center" styleClass="layoutCenter"> 
-                    <br/>
-                  <center>                      
-                                           
-                      <h:form>
-                          <h:dataTable id="tabelaCasosTeste" value="#{respostaBean.mostrarRespostas()}" 
+
+                <p:layoutUnit id="norte" position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="layoutNorth">
+                    
+                    <!--<h:graphicImage library="imagens" name="banner.jpg"  style=" background-repeat: inherit" />-->
+                    
+                    <h:outputLabel id="labelNomeSistema" value="TEACHING TEST"/>
+                    <br/><br/>
+                    
+            
+                
+                    
+                </p:layoutUnit>
+
+               <!-- <p:layoutUnit position="south" size="100" closable="true" collapsible="true" styleClass="layoutSouth">
+                    Footer
+                </p:layoutUnit>-->
+
+                <p:layoutUnit position="west" size="250" styleClass="layoutWest">
+                    <h:form>
+                        Visualizar respostas<br /><br />
+                        <h:dataTable value="#{listaAlunoBean.listaAluno}" var="aluno">
+                        <h:column >
+                            <h:commandLink value="#{aluno.nomeAluno}" action="#{respostaBean.mostrarRespostasTutor()}">
+                            <f:ajax event="action" render="tabelaresp" listener="#{respostaBean.show(event)}" />
+                               <f:param name="id" value="#{aluno.codAluno}"/>
+                               
+                                
+                           </h:commandLink>
+<!--<a href="#" onclick="atualizarQuestao('#{questao.enunciadoQuestao}', '#{questao.codQuestao}')" >
+                               <h:outputText value="#{questao.nomeQuestao}"/>
+                                </a>--> 
+                             
+                        </h:column>
+                       </h:dataTable>
+
+                        </h:form>        
+                    
+                    
+                </p:layoutUnit>
+               
+               <p:layoutUnit position="center" size="250" styleClass="layoutCenter">
+                   
+                   
+                       <h:dataTable id="tabelaresp" value="#{respostaBean.resps}" 
                                        var="campo" border="1"
                               
                             styleClass="tabelaCasosTeste"
                             headerClass="tabelaCasosTeste-header"
                             rowClasses="tabelaCasosTeste-odd-row,tabelaCasosTeste-even-row">
-            
+                            
                             <h:column>    				
                             <f:facet name = "header">Questão</f:facet>    				
                                #{campo.nomeQuestao}
@@ -67,11 +105,6 @@
                                 </tr>
                                 
                                 <tr >
-                                    <td><h:outputLabel value="Classe inválida 1: "/></td>
-                                    <td> #{campo.classeInvalidaUm} </td>
-                                </tr>
-                                
-                                <tr >
                                     <td><h:outputLabel value="Entrada inválida 1: "/></td>
                                     <td> #{campo.entradaInvalidaUm} </td>
                                 </tr>
@@ -79,11 +112,6 @@
                                 <tr >
                                     <td><h:outputLabel value="Saída inválida esperada: "/></td>
                                     <td> #{campo.saidaInvalidaUm} </td>
-                                </tr>
-                                
-                                <tr >
-                                    <td><h:outputLabel value="Classe inválida 2: "/></td>
-                                    <td> #{campo.classeInvalidaDois} </td>
                                 </tr>
                                 
                                  <tr >
@@ -99,15 +127,15 @@
                                 
                             </h:column>
                         </h:dataTable>
-                     </h:form>
-                      
-                  </center>
-                  
-                  
+                   
+                        
+                   
                </p:layoutUnit>
+
             </p:layout>
 
         </h:body>
 
     </f:view>
 </html>
+
